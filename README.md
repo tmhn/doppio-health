@@ -19,5 +19,3 @@ The purpose of this project is to allow healthcare professionals to produce smal
 ##Further Work
 
 - Integrate with an auto-updater library to allow users to recieve specific updates
-
->>>>>>> a593a0ce7d688fc0ef5229d2bb16affbf16eac54

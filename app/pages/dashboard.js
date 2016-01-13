@@ -10,13 +10,11 @@ var data = require('../data/data');
 var Profile = require('./profile');
 
 var componentsRegistry = {
-	/*
-	mSmoking: require('./Apps/mSmoking'),
-	mPills: require('./Apps/mPills'),
-	mFluJab: require('./Apps/mFluJab'),
-	mOptician: require('./Apps/mOptician'),
-	mTest: require('./Apps/mTest'),
-	*/
+	smoking: require('../bundles/smoking'),
+	pills: require('../bundles/pills'),
+	flujab: require('../bundles/flujab'),
+	optician: require('../bundles/optician'),
+	test: require('../bundles/test'),
 };
 
 var {

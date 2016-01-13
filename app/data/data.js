@@ -2,34 +2,34 @@ module.exports = {
 	Smoking: 
 	{	
 		'title': 'Smoking',
-		'component': 'Smoking',
+		'component': 'smoking',
 		'bio': 'Helping keeping a count on cigarettes',
 
 	},
 	Pills:
 	{
 		'title': 'Pills',
-		'component': 'Pills',
+		'component': 'pills',
 		'bio': 'Winter Pill counter',
 	},
 	FluJab: 
 	{	
 		'title': 'FluJab',
-		'component': 'FluJab',
+		'component': 'flujab',
 		'bio': 'Winter flujab reminder 2',
 
 	},
 	Optician: 
 	{	
 		'title': 'Optician',
-		'component': 'Optician',
-		'bio': 'Go get some new glasses Tom',
+		'component': 'optician',
+		'bio': 'Go get some new glasses Tommy',
 
 	},
 	Test:
 	{
 		'title': 'Test',
-		'component': 'Test',
+		'component': 'test',
 		'bio': 'Try',
 	},
 

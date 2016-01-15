@@ -9,6 +9,7 @@ var React = require('react-native');
  
  var {
     ActivityIndicatorIOS,
+    NavigatorIOS,
     Text,
     TextInput,
     TouchableHighlight,

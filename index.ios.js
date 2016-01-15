@@ -26,4 +26,6 @@ class DoppioHealth extends React.Component{
   }
 };
 
+//var DoppioHealth = require('./app/pages/main/main');
+
 AppRegistry.registerComponent('DoppioHealth', () => DoppioHealth);

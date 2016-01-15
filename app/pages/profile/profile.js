@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react-native');
-var Theme = require('../components/theme/theme');
+var Theme = require('../../components/theme/theme');
 
 var {
   StyleSheet,

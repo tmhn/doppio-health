@@ -2,7 +2,7 @@
 'use strict';
 
 var React = require('react-native');
-var Main = require('./app/pages/main');
+var Main = require('./app/pages/main/main');
 var Theme = require('./app/components/theme/theme');
 
 var {

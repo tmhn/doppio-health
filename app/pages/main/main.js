@@ -2,10 +2,10 @@
 
 'use strict';
 var React = require('react-native');
- var Dashboard = require('./dashboard');
- var Theme = require('../components/theme/theme');
- var ComponentsApi = require('../api/components-api');
- var UserData = require('../data/user-data');
+ var Dashboard = require('../dashboard/dashboard');
+ var Theme = require('../../components/theme/theme');
+ var ComponentsApi = require('../../api/components-api');
+ var UserData = require('../../data/user-data');
  
  var {
     ActivityIndicatorIOS,

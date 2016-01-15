@@ -6,7 +6,7 @@
  		lastName: 'Hanson',	
  	},
  	{
- 		username: 'andy',
+ 		username: 'Andy',
  		password: 'andy',
  		firstName: 'Andy',
  		lastName: 'Stratton',

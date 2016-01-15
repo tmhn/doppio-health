@@ -3,18 +3,18 @@
 'use strict';
 
 var React = require('react-native');
-var Theme = require('../components/theme/theme');
-var api = require('../api/api');
-var componentsApi = require('../api/components-api');
-var data = require('../data/data');
-var Profile = require('./profile');
+var Theme = require('../../components/theme/theme');
+var api = require('../../api/api');
+var componentsApi = require('../../api/components-api');
+var data = require('../../data/data');
+var Profile = require('../profile/profile');
 
 var componentsRegistry = {
-	smoking: require('../bundles/smoking'),
-	pills: require('../bundles/pills'),
-	flujab: require('../bundles/flujab'),
-	optician: require('../bundles/optician'),
-	test: require('../bundles/test'),
+	smoking: require('../../bundles/smoking'),
+	pills: require('../../bundles/pills'),
+	flujab: require('../../bundles/flujab'),
+	optician: require('../../bundles/optician'),
+	test: require('../../bundles/test'),
 };
 
 var {
@@ -31,7 +31,8 @@ class Dashboard extends React.Component{
 	openComponent(component){
 		this.props.navigator.push({
 			component: componentsRegistry[component],
-			title: component
+			// Takes the first letter of component and performs .toUpperCase
+			title: component[0].toUpperCase() + component.slice(1)
 		});
 	}
 

@@ -25,6 +25,7 @@ module.exports = {
   	container: {
   		flex: 1,
   		backgroundColor: '#48BBEC',
+  		fontFamily: 'Avenir',
   	},
 	mainContainer: {
 		flex: 1,

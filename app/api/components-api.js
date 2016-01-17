@@ -62,17 +62,17 @@ getTextInput(changeText, changeType underlayColor, placeholder){
 );
 },
 
-*/
+
  	getTextInput(changeText, changeType, underlayColor, placeholder, secureEntry){
  		return (
  			<TextInput
- 				onChangeText={(changeType)=> this.setState({changeText: changeType})}
+ 				onChangeText={({changeType})=> this.setState({changeText}: {changeType})}
  				style={Theme.searchInput}
- 				placeholder= {placeholder}
- 				secureTextEntry= {secureEntry} />
+ 				placeholder= `${placeholder}`
+ 				secureTextEntry= `${secureEntry}` />
 		);
  	},
-
+*/
  	getSeparator(){
  		return (
  			<View style={Theme.separator} />

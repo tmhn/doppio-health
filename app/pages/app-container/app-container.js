@@ -2,7 +2,6 @@
 'use strict';
 
 var React = require('react-native');
-var Dashboard = require('../dashboard/dashboard');
 var Theme = require('../../components/theme/theme');
 
 var HomeFeed = require('../../feeds/homeFeed');
@@ -49,7 +48,12 @@ class AppContainer extends React.Component{
           selected={this.state.selectedTab == "diary"}
           onPress={()=> this.setState({selectedTab: 'diary'})} >
 
-          <DiaryFeed />
+          <NavigatorIOS
+            style={{flex: 1}}
+            initialRoute={{
+              title: 'Diary',
+              component: DiaryFeed
+            }} />
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
@@ -58,7 +62,12 @@ class AppContainer extends React.Component{
           selected={this.state.selectedTab == "profile"}
           onPress={()=> this.setState({selectedTab: 'profile'})} >
 
-          <Profile />
+          <NavigatorIOS
+            style={{flex: 1}}
+            initialRoute={{
+              title: 'Profile',
+              component: Profile
+            }} />
         </TabBarIOS.Item>
 
 

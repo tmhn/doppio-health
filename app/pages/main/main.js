@@ -4,6 +4,8 @@
  var React = require('react-native');
  var AppContainer = require('../app-container/app-container');
  var Login = require('../login/login');
+ var AuthService = require('../../helpers/AuthService');
+ var Theme = require('../../components/theme/theme');
  
  var {
     ActivityIndicatorIOS,
@@ -15,9 +17,19 @@
  } = React;
  
  var Main = React.createClass({
+ 	/*componentDidMount(){
+ 		AuthService.getAuthInfo((err, authInfo)=> {
+ 			this.setState({
+ 			  checkingAuth: false,
+ 			  isLoggedIn: authInfo != null
+ 			});
+ 		});
+ 	},*/
+
 	getInitialState(){
 		return{
 			isLoggedIn: false,
+			//checkingAuth: true,
 		}
 	},
 
@@ -28,6 +40,18 @@
 	},
 
 	render(){
+		if(this.state.checkingAuth){
+			return(
+				<View style={Theme.mainContainer}>
+					<ActivityIndicatorIOS
+					  animating={true}
+					  color={'#808080'}
+					  size={'large'} />
+					
+				</View>
+			);
+		}
+
 		if(this.state.isLoggedIn){
 			return(
 				<AppContainer />
@@ -39,6 +63,6 @@
 		}
 	}
  });
- 
+
  module.exports = Main;
  

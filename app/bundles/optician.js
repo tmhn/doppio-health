@@ -13,7 +13,7 @@ class Optician extends React.Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
-      	<Text>Optician Page</Text>
+      	<Text style={Theme.title}>Optician Page</Text>
       </View>
     );
   }

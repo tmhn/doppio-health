@@ -8,6 +8,8 @@ var componentsRegistry = {
   Smoking: require('../bundles/smoking'),
   Pills: require('../bundles/pills'),
   FluJab: require('../bundles/flujab'),
+  Optician: require('../bundles/optician'),
+  Test: require('../bundles/test'),
 };
 
 var {

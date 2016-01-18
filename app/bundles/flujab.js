@@ -13,7 +13,7 @@ class Flujab extends React.Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
-      	<Text>Flujab</Text>
+      	<Text style={Theme.title}>Flujab</Text>
       </View>
     );
   }

@@ -13,7 +13,7 @@ class Smoking extends React.Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
-      	<Text>Smoking Page</Text>
+      	<Text style={Theme.title}>Smoking Page</Text>
       </View>
     );
   }

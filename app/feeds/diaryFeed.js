@@ -13,7 +13,7 @@ class DiaryFeed extends React.Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
-      	<Text>Diary Feed</Text>
+      	<Text style={Theme.title}>Diary</Text>
       </View>
     );
   }

@@ -13,7 +13,7 @@ class Pills extends React.Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
-      	<Text>Pills page</Text>
+      	<Text style={Theme.title}>Pills page</Text>
       </View>
     );
   }

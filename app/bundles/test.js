@@ -13,7 +13,7 @@ class Test extends React.Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
-      	<Text>Test page</Text>
+      	<Text style={Theme.title}>Test page</Text>
       </View>
     );
   }

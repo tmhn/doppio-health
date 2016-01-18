@@ -26,7 +26,7 @@ class AppContainer extends React.Component{
 
   render() {
     return (
-      <TabBarIOS style={styles.container}>
+      <TabBarIOS style={Theme.appContainer}>
         <TabBarIOS.Item
           title="Home"
           icon={require('../../components/icons/home.png')}
@@ -70,23 +70,9 @@ class AppContainer extends React.Component{
             }} />
         </TabBarIOS.Item>
 
-
       </TabBarIOS>
     );
   }
 };
-
-
-var styles = StyleSheet.create({
-  tabView: {
-    marginTop: 30,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-  },
-});
 
 module.exports = AppContainer;

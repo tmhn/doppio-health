@@ -4,6 +4,30 @@
 var React = require('react-native');
 
 module.exports = {
+
+// 
+// AppContainer -> TabBar for application
+	appContainer: {
+		flex: 1,
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    backgroundColor: '#FFF',
+	},
+//	HomeFeed
+//	DiaryFeed
+	
+
+// 	Profile
+	profileContainer: {
+		flex: 1,
+		padding: 30,
+		marginTop: 65,
+		paddingBottom: 75,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		backgroundColor: '#FFF',
+	},
+//
 	button: {
 		height: 45,
 		flexDirection: 'row',
@@ -82,33 +106,8 @@ module.exports = {
 		marginLeft: 15,
 	},
 
-// Profile
 
-	profileContainer: {
-		flex: 1,
-		paddingTop: 150,
-		paddingBottom: 150,
-	},
 
-// Dashboard
-	dashboardContainer: {
-  		backgroundColor: '#FFF',
-  		flex: 1,
-  	},
-	dashboardDescription: {
-		fontSize: 14,
-		paddingBottom: 5,
-	},
-	rowContainer: {
-		flexDirection: 'column',
-		flex: 1,
-		padding: 20,
-	},
-	name: {
-		color: '#111',
-		fontSize: 18,
-		paddingBottom: 5,
-	},
 	loginError:{
 		color: 'red',
 		paddingTop: 10,

@@ -80,7 +80,8 @@ class AppContainer extends React.Component{
             style={{flex: 1}}
             initialRoute={{
               title: 'Profile',
-              component: Profile
+              component: Profile,
+              rightButtonIcon: require('../../components/icons/settings.png'),
             }} />
         </TabBarIOS.Item>
 

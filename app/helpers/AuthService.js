@@ -41,6 +41,7 @@ class AuthService{
 			function(results){
 				// Checking if results has object in
 				if(!results.length == 0){
+					console.log(`Successfully logged in: ${creds.username}`);
 					return cb({
 						badCredentials: false,
 						showProgress: false,
@@ -48,6 +49,7 @@ class AuthService{
 					});
 				
 				} else {
+					console.log(`Unsuccessful log in: ${creds.username}`);
 					return cb({
 						badCredentials: true,
 						showProgress: false,

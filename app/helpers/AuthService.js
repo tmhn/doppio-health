@@ -5,6 +5,10 @@ var AsyncStorage = require('react-native').AsyncStorage;
 var UserData = require('../data/user-data');
 var _ = require('lodash');
 
+var DB = require('../data/db.js');
+var DBEvents = require('react-native-db-models').DBEvents
+
+
 const authKey = 'auth';
 const userKey = 'user';
 
@@ -33,41 +37,24 @@ class AuthService{
 	}
 
 	login(creds, cb){
-		var userLogin = creds.username + ':' + creds.password;
-
-		var foundUser = UserData.filter((user) => {
-			return user.username === creds.username && user.password === creds.password
-		})[0]
-
-		// Variable for successful users
-		var userResults = {
-			badCredentials: false,
-			showProgress: false,
-			userAuthSuccess: true,
-		}
-
-		if(foundUser){
-			return cb({
-				badCredentials: false,
-				showProgress: false,
-				userAuthSuccess: true,
+		DB.users.get({username: creds.username, password: creds.password}, 
+			function(results){
+				// Checking if results has object in
+				if(!results.length == 0){
+					return cb({
+						badCredentials: false,
+						showProgress: false,
+						userAuthSuccess: true,
+					});
 				
-			});
-			AsyncStorage.multiSet([
-				[authKey, userLogin],
-				[userKey, JSON.stringify(userResults)]
-			], (err)=> {
-				if(err){
-					throw err;
+				} else {
+					return cb({
+						badCredentials: true,
+						showProgress: false,
+						userAuthSuccess: false,
+					});
 				}
 			})
-		} else {
-			return cb({
-				badCredentials: true,
-				showProgress: false,
-				userAuthSuccess: false,
-			});
-		}
 	}
 }
 

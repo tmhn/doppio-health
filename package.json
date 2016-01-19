@@ -6,8 +6,11 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "eventemitter3": "^1.1.1",
     "lodash": "^4.0.0",
+    "promise-es6": "^0.1.0",
     "react-native": "^0.14.2",
+    "react-native-db-models": "^0.1.2",
     "react-native-scrollable-tab-view": "^0.3.4"
   }
 }

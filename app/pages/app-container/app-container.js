@@ -8,6 +8,9 @@ var HomeFeed = require('../../feeds/homeFeed');
 var DiaryFeed = require('../../feeds/diaryFeed');
 var Profile = require('../profile/profile');
 
+var DB = require('../../data/db');
+var DBEvents = require('react-native-db-models').DBEvents
+
 var {
 	NavigatorIOS,
   TabBarIOS,
@@ -22,6 +25,17 @@ class AppContainer extends React.Component{
     this.state = {
       selectedTab: 'home'
     }
+  }
+
+  componentDidMount(){
+    //this.fetchData();
+  }
+
+  fetchData(){
+    DB.users.get_all(function(result){
+        console.log("All Users: "),
+        console.log(result);
+    })
   }
 
   render() {

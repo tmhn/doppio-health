@@ -9,30 +9,20 @@ var DB = require('../data/db.js');
 var DBEvents = require('react-native-db-models').DBEvents
 
 
-const authKey = 'auth';
-const userKey = 'user';
-
 class AuthService{
 
-	getAuthInfo(cb){
-		AsyncStorage.multiGet([authKey, userKey], (err, val)=> {
-			if(err){
-				return cb(err);
-			}
+	deleteUserSessionRows(cb){
+		DB.user_session.erase_db(function(removed_data){
+			console.log(`Deleted data: ${removed_data}`);
+		});
+	}
 
-			if(!val){
-				return cb();
-			}
+	getUserSession(cb){
 
-			var zippedObj = _.zipObject(val);
-
-			if(!zippedObj[authKey]){
-				return cb()
-			}
-
-			var authInfo = [authKey];
-
-			return cb(null, authInfo);
+		DB.user_session.get_all(function(result){
+			var getAllResults = result;
+			console.log(`User Session Row Count: ${getAllResults.totalrows}`);
+			cb(getAllResults.totalrows);
 		});
 	}
 
@@ -42,6 +32,11 @@ class AuthService{
 				// Checking if results has object in
 				if(!results.length == 0){
 					console.log(`Successfully logged in: ${creds.username}`);
+
+					DB.user_session.add({username: creds.username}, function(added_data){
+						console.log(`Record added to User Session- username: ${creds.username}`);
+					});
+
 					return cb({
 						badCredentials: false,
 						showProgress: false,

@@ -7,11 +7,15 @@ var Theme = require('../../components/theme/theme');
 var HomeFeed = require('../../feeds/homeFeed');
 var DiaryFeed = require('../../feeds/diaryFeed');
 var Profile = require('../profile/profile');
+var authService = require('../../helpers/AuthService');
 
 var DB = require('../../data/db');
 var DBEvents = require('react-native-db-models').DBEvents
 
+var Main = require('../main/main');
+
 var {
+  AlertIOS,
 	NavigatorIOS,
   TabBarIOS,
   StyleSheet,
@@ -82,6 +86,24 @@ class AppContainer extends React.Component{
               title: 'Profile',
               component: Profile,
               rightButtonIcon: require('../../components/icons/settings.png'),
+              onRightButtonPress: () => {
+                AlertIOS.alert(
+                  'Logout',
+                  'Click OK to Logout',
+                  [
+                    {
+                      text: 'OK',
+                      onPress: () => authService.deleteUserSessionRows((result)=>{
+                        console.log('Deleted user sessions');
+                      }),
+                    },
+                    {
+                      text: 'Cancel',
+                      onPress: () =>console.log('Logout cancelled'),
+                    },
+                  ]
+                );
+              },
             }} />
         </TabBarIOS.Item>
 

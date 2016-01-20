@@ -4,9 +4,10 @@
  var React = require('react-native');
  var AppContainer = require('../app-container/app-container');
  var Login = require('../login/login');
- var AuthService = require('../../helpers/AuthService');
+ var authService = require('../../helpers/AuthService');
  var Theme = require('../../components/theme/theme');
- 
+ var _ = require('lodash');
+
  var {
     ActivityIndicatorIOS,
     NavigatorIOS,
@@ -16,15 +17,31 @@
     View,
  } = React;
  
+ const certUserSession = 'cert';
+ const vetoUserSession = 'veto';
+
  var Main = React.createClass({
- 	/*componentDidMount(){
- 		AuthService.getAuthInfo((err, authInfo)=> {
- 			this.setState({
- 			  checkingAuth: false,
- 			  isLoggedIn: authInfo != null
- 			});
+ 	
+ 	componentDidMount(){
+
+ 		authService.getUserSession((result)=> {
+ 			if(!result == 0) {
+ 				console.log(`-- User Session Row Count: ${result}`);
+
+ 				this.setState({
+ 				  isLoggedIn: true,
+ 				});
+
+ 			} else {
+ 				console.log(`-- Else Method: ${result}`);
+ 				this.setState({
+ 				  isLoggedIn: false,
+ 				});
+ 			}
  		});
- 	},*/
+
+
+ 	},
 
 	getInitialState(){
 		return{

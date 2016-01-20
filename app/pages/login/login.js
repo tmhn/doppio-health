@@ -25,7 +25,7 @@ class Login extends React.Component{
 	}
 
 	onLoginPressed() {
-		console.log(`Attempting to log in with username ${this.state.username}`);
+		console.log(`Attempting to log in with username: ${this.state.username}`);
 		this.setState({showProgress: true});
 
 		authService.login({
@@ -70,7 +70,7 @@ class Login extends React.Component{
 				onChangeText={(text)=> this.setState({password: text})}
 				style={Theme.searchInput}
 				placeholder="Password"
-				secureTextEntry="true" />
+				secureTextEntry={ true } />
 
 
 			{ComponentsApi.getButton('Login', this.onLoginPressed.bind(this))}

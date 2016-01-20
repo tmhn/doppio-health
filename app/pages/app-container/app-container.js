@@ -33,13 +33,12 @@ class AppContainer extends React.Component{
   }
 
   componentDidMount(){
-    //this.fetchData();
+    this.fetchData();
   }
 
   fetchData(){
     DB.users.get_all(function(result){
-        console.log("All Users: "),
-        console.log(result);
+        console.log('User table count: '+ result.totalrows);
     })
   }
 

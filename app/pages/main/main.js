@@ -9,6 +9,9 @@
  var Theme = require('../../components/theme/theme');
  var _ = require('lodash');
 
+var DB = require('../../data/db');
+var DBEvents = require('react-native-db-models').DBEvents
+
  var {
     ActivityIndicatorIOS,
     NavigatorIOS,
@@ -25,22 +28,26 @@
  	
  	componentDidMount(){
 
+ 		/*DB.users.get_all(function(result){
+        	console.log(result);
+    	})*/
+
+ /*DB.users.update({first_name: "Tom"}, {password: "tom"}, function(updated_table){
+    console.log(updated_table);
+})*/
+
  		userService.getUserSession((result)=> {
  			if(!result == 0) {
- 				console.log(`-- User Session Row Count: ${result}`);
-
  				this.setState({
  				  isLoggedIn: true,
  				});
 
  			} else {
- 				console.log(`-- Else Method: ${result}`);
  				this.setState({
  				  isLoggedIn: false,
  				});
  			}
  		});
-
 
  	},
 

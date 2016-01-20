@@ -4,7 +4,8 @@
  var React = require('react-native');
  var AppContainer = require('../app-container/app-container');
  var Login = require('../login/login');
- var authService = require('../../helpers/AuthService');
+
+ var userService = require('../../helpers/UserService');
  var Theme = require('../../components/theme/theme');
  var _ = require('lodash');
 
@@ -24,7 +25,7 @@
  	
  	componentDidMount(){
 
- 		authService.getUserSession((result)=> {
+ 		userService.getUserSession((result)=> {
  			if(!result == 0) {
  				console.log(`-- User Session Row Count: ${result}`);
 

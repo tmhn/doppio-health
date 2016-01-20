@@ -11,21 +11,6 @@ var DBEvents = require('react-native-db-models').DBEvents
 
 class AuthService{
 
-	deleteUserSessionRows(cb){
-		DB.user_session.erase_db(function(removed_data){
-			console.log(`Deleted data: ${removed_data}`);
-		});
-	}
-
-	getUserSession(cb){
-
-		DB.user_session.get_all(function(result){
-			var getAllResults = result;
-			console.log(`User Session Row Count: ${getAllResults.totalrows}`);
-			cb(getAllResults.totalrows);
-		});
-	}
-
 	login(creds, cb){
 		DB.users.get({username: creds.username, password: creds.password}, 
 			function(results){
@@ -51,7 +36,8 @@ class AuthService{
 						userAuthSuccess: false,
 					});
 				}
-			})
+			}
+		)
 	}
 }
 

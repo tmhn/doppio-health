@@ -8,6 +8,7 @@ var HomeFeed = require('../../feeds/homeFeed');
 var DiaryFeed = require('../../feeds/diaryFeed');
 var Profile = require('../profile/profile');
 var authService = require('../../helpers/AuthService');
+var userService = require('../../helpers/UserService');
 
 var DB = require('../../data/db');
 var DBEvents = require('react-native-db-models').DBEvents
@@ -93,7 +94,7 @@ class AppContainer extends React.Component{
                   [
                     {
                       text: 'OK',
-                      onPress: () => authService.deleteUserSessionRows((result)=>{
+                      onPress: () => userService.deleteUserSessionRows((result)=>{
                         console.log('Deleted user sessions');
                       }),
                     },

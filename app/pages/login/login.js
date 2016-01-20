@@ -8,6 +8,7 @@ var Theme = require('../../components/theme/theme');
 
 var {
 	ActivityIndicatorIOS,
+	Image,
   	StyleSheet,
   	Text,
   	TextInput,
@@ -60,7 +61,10 @@ class Login extends React.Component{
 
     return (
 		<View style={ComponentsApi.getHeaderStyle()}>
-			{ComponentsApi.getLogoTitle("Doppio", "Health")}
+
+			<Image
+				source={require('../../components/icons/logo.png')}
+				style={{width: 197, height: 40, alignSelf: 'center', marginBottom: 15}} />
 			<TextInput
 				onChangeText={(text)=> this.setState({username: text})}
 			style={Theme.searchInput}

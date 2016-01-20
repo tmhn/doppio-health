@@ -42,6 +42,10 @@ class AppContainer extends React.Component{
     })
   }
 
+  navbarLogout(){
+    userService.deleteUserSessionRows();
+  }
+
   render() {
     return (
       <TabBarIOS style={Theme.appContainer}>
@@ -93,9 +97,7 @@ class AppContainer extends React.Component{
                   [
                     {
                       text: 'OK',
-                      onPress: () => userService.deleteUserSessionRows((result)=>{
-                        console.log('Deleted user sessions');
-                      }),
+                      onPress: () => this.navbarLogout(),
                     },
                     {
                       text: 'Cancel',

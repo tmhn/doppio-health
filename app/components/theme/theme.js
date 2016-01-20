@@ -54,7 +54,7 @@ module.exports = {
 	mainContainer: {
 		flex: 1,
 		padding: 30,
-		marginTop: 65,
+		//marginTop: 65,
 		paddingBottom: 75,
 		flexDirection: 'column',
 		justifyContent: 'center',

@@ -28,14 +28,6 @@ var DBEvents = require('react-native-db-models').DBEvents
  	
  	componentDidMount(){
 
- 		/*DB.users.get_all(function(result){
-        	console.log(result);
-    	})*/
-
- /*DB.users.update({first_name: "Tom"}, {password: "tom"}, function(updated_table){
-    console.log(updated_table);
-})*/
-
  		userService.getUserSession((result)=> {
  			if(!result == 0) {
  				this.setState({

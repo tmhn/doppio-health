@@ -18,6 +18,7 @@ class UserService{
 		DB.user_session.get_all(function(result){
 			var getAllResults = result;
 			console.log(`User Session Row Count: ${getAllResults.totalrows}`);
+			console.log(`User Session Row Count: ${getAllResults.username}`);
 			cb(getAllResults.totalrows);
 		});
 	}

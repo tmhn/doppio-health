@@ -34,6 +34,10 @@ class HomeFeed extends React.Component{
     };
   }
 
+  componentDidMount(){
+    this.fetchFeed();
+  }
+
   onPress(rowData){
     var component = componentsRegistry[rowData.title];
 
@@ -61,10 +65,6 @@ class HomeFeed extends React.Component{
           </View>
       </TouchableHighlight>
     );
-  }
-
-  componentDidMount(){
-    this.fetchFeed();
   }
 
   fetchFeed(){

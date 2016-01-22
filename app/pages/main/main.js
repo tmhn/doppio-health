@@ -21,10 +21,7 @@ var DBEvents = require('react-native-db-models').DBEvents
     View,
  } = React;
  
- const certUserSession = 'cert';
- const vetoUserSession = 'veto';
-
- var Main = React.createClass({
+var Main = React.createClass({
  	
  	componentDidMount(){
 

@@ -5,11 +5,11 @@ var React = require('react-native');
 var FeedData = require('../data/data');
 
 var componentsRegistry = {
-  Smoking: require('../bundles/smoking'),
-  Pills: require('../bundles/pills'),
-  FluJab: require('../bundles/flujab'),
-  Optician: require('../bundles/optician'),
-  Test: require('../bundles/test'),
+  smoking: require('../bundles/smoking'),
+  pills: require('../bundles/pills'),
+  flujab: require('../bundles/flujab'),
+  optician: require('../bundles/optician'),
+  test: require('../bundles/test'),
 };
 
 var {
@@ -39,7 +39,7 @@ class HomeFeed extends React.Component{
   }
 
   onPress(rowData){
-    var component = componentsRegistry[rowData.title];
+    var component = componentsRegistry[rowData.ref];
 
     this.props.navigator.push({
       title: `${rowData.title}`,
@@ -47,8 +47,7 @@ class HomeFeed extends React.Component{
     });
   }
 
-  renderRow(rowData){      
-
+  renderRow(rowData){
     return(
       <TouchableHighlight
           onPress={()=> this.onPress(rowData)}

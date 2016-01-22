@@ -51,28 +51,7 @@
  			<Text style={Theme.logoNormalTitle}>{title1}<Text style={Theme.logoLiteTitle}>{title2}</Text></Text>
 		);
  	},
-/*
-getTextInput(changeText, changeType underlayColor, placeholder){
-	return (
-		<TextInput
-			onChangeText={(text)=> this.setState({username: text})}
-			style={Theme.searchInput}
-			placeholder="Username"
-			secureTextEntry="true" />
-);
-},
 
-
- 	getTextInput(changeText, changeType, underlayColor, placeholder, secureEntry){
- 		return (
- 			<TextInput
- 				onChangeText={({changeType})=> this.setState({changeText}: {changeType})}
- 				style={Theme.searchInput}
- 				placeholder= `${placeholder}`
- 				secureTextEntry= `${secureEntry}` />
-		);
- 	},
-*/
  	getSeparator(){
  		return (
  			<View style={Theme.separator} />

@@ -26,5 +26,4 @@ The healthcare professional generates the "AppBundle" from the DoppioHealth webs
 ##Further Work
 _\( not to be confused with [ToDos](https://github.com/tmhn/doppio-health/blob/master/todo.md) \)_
 
-- Integrate with an auto-updater library to allow users to recieve specific updates
-- 
+-Integrate with an auto-updater library to allow users to recieve specific updates

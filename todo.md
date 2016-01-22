@@ -1,5 +1,4 @@
-# Todo list
+# ToDo - DoppioHealth iOS
 
-_\( managed using [todo-md](https://github.com/Hypercubed/todo-md) \)_
 
 - [ ] Refactor login process

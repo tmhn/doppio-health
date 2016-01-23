@@ -64,7 +64,7 @@ class Login extends React.Component{
 
 			<Image
 				source={require('../../components/icons/logo_white.png')}
-				style={{width: 265, height: 40, alignSelf: 'center', marginBottom: 15}} />
+				style={{width: 265, height: 40, alignSelf: 'center', marginBottom: 25}} />
 			<TextInput
 				onChangeText={(text)=> this.setState({username: text})}
 			style={Theme.searchInput}

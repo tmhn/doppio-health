@@ -115,7 +115,8 @@ var styles = StyleSheet.create({
   },
 
   rowViewTitle: {
-    backgroundColor: '#FFF', 
+    backgroundColor: '#FFF',
+    color: '#498EE0', 
     fontWeight: '700',
     fontFamily: 'Avenir',
     fontSize: 20,

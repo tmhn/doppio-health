@@ -57,6 +57,9 @@ class AppContainer extends React.Component{
 
           <NavigatorIOS
             style={{flex: 1}}
+            barTintColor='#498EE0'
+            tintColor='#FFF'
+            titleTextColor='#FFF'
             initialRoute={{
               title: 'Home',
               component: HomeFeed
@@ -72,6 +75,9 @@ class AppContainer extends React.Component{
 
           <NavigatorIOS
             style={{flex: 1}}
+            barTintColor='#498EE0'
+            tintColor='#FFF'
+            titleTextColor='#FFF'
             initialRoute={{
               title: 'Diary',
               component: DiaryFeed
@@ -86,6 +92,9 @@ class AppContainer extends React.Component{
 
           <NavigatorIOS
             style={{flex: 1}}
+            barTintColor='#498EE0'
+            tintColor='#FFF'
+            titleTextColor='#FFF'
             initialRoute={{
               title: 'Profile',
               component: Profile,

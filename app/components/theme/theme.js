@@ -24,15 +24,57 @@ module.exports = {
 
 // Record
 	record_container: {
-
+		flex: 1,
+    	justifyContent: 'flex-start',
+    	backgroundColor: '#FFF',
+	},
+	record_rowView: {
+		flex: 1,
+	    flexDirection: 'row',
+	    padding: 20,
+	    paddingTop: 30,
+	    paddingBottom: 30,
+	    alignItems: 'center',
+	    borderColor: '#D7D7D7',
+	    borderBottomWidth: 1,
+	},
+	record_rowText: {
+		paddingLeft: 20,
+	},
+	record_rowTitle: {
+		backgroundColor: '#FFF', 
+	    fontWeight: '700',
+	    fontFamily: 'Avenir',
+	    fontSize: 20,
+	    color: '#498EE0',
+	},
+	record_rowBio: {
+		backgroundColor: '#FFF',
+    	fontFamily: 'Avenir',
+	},
+	record_rowRightContainer: {
+		flex: 1,
+	    flexDirection: 'row',
+	    justifyContent: 'flex-end',
+	    paddingRight: 15,
+	},
+	record_rowValue: {
+		paddingTop: 8,
+	},
+	record_rowIcon: {
+		height: 39,
+	    width: 39,
+	    marginRight: 15,
+	    marginLeft: 15,
 	},
 
 // Tips
 
 // Guidance 
 
-
-// ------ Feeds ------
+// -------------------------------
+// ------------ Feeds ------------
+// -------------------------------
 //	HomeFeed
 	homefeed_container: {
 		flex: 1,
@@ -204,8 +246,4 @@ module.exports = {
 		flex: 1,
 		marginLeft: 15,
 	},
-
-
-
-
 };

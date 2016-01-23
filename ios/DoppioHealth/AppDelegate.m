@@ -16,6 +16,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
+  
+  [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                         NSFontAttributeName : [UIFont fontWithName:@"Avenir-Light" size:22.0],
+                                                         NSForegroundColorAttributeName : [UIColor whiteColor]
+                                                         }];
 
   /**
    * Loading JavaScript code - uncomment the one you want.

@@ -19,6 +19,7 @@ var {
   AlertIOS,
 	NavigatorIOS,
   TabBarIOS,
+  StatusBarIOS,
   StyleSheet,
   View,
 } = React;
@@ -33,7 +34,12 @@ class AppContainer extends React.Component{
   }
 
   componentDidMount(){
+    
     this.fetchData();
+
+    this.setState({
+      loggedIn: true,
+    });
   }
 
   fetchData(){
@@ -43,10 +49,13 @@ class AppContainer extends React.Component{
   }
 
   navbarLogout(){
+    console.log('user logged in on logout press');
     userService.deleteUserSessionRows();
   }
 
   render() {
+    StatusBarIOS.setStyle("light-content")
+
     return (
       <TabBarIOS style={Theme.appContainer}>
         <TabBarIOS.Item
@@ -70,6 +79,7 @@ class AppContainer extends React.Component{
         <TabBarIOS.Item
           title="Diary"
           icon={require('../../components/icons/bookmark.png')}
+          barTintColor='#498EE0'
           selected={this.state.selectedTab == "diary"}
           onPress={()=> this.setState({selectedTab: 'diary'})} >
 
@@ -91,6 +101,7 @@ class AppContainer extends React.Component{
           onPress={()=> this.setState({selectedTab: 'profile'})} >
 
           <NavigatorIOS
+          ref="nav"
             style={{flex: 1}}
             barTintColor='#498EE0'
             tintColor='#FFF'

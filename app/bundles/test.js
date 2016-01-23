@@ -32,7 +32,12 @@ class Test extends React.Component{
   }
 
   fetchFeed(){
-    var feedItems = [{'id': '1', 'name': 'Paracetamol', 'bio': 'Extra strength', 'count': '3'}, {'id': '2', 'name': 'Ibuprofen', 'bio': 'Normal', 'count': '8'}, {'id': '3', 'name': 'Codeine', 'bio': 'Hospital strength', 'count': '2'}, {'id': '4', 'name': 'Fluclox', 'bio': 'Hospital strength', 'count': '6'}];
+    var feedItems = [
+    {'id': '1', 'name': 'Paracetamol', 'bio': 'Extra strength', 'count': '3'}, 
+    {'id': '2', 'name': 'Ibuprofen', 'bio': 'Normal', 'count': '8'}, 
+    {'id': '3', 'name': 'Codeine', 'bio': 'Hospital strength', 'count': '2'}, 
+    {'id': '4', 'name': 'Fluclox', 'bio': 'Hospital strength', 'count': '6'}
+  ];
     
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(feedItems)
@@ -53,6 +58,9 @@ class Test extends React.Component{
         <View style={styles.rowViewText}>
           <Text style={styles.rowViewTitle}>
             {rowData.name}
+          </Text>
+          <Text style={styles.rowViewBio}>
+            {rowData.bio}
           </Text>
           <Text style={styles.rowViewBio}>
             {rowData.bio}

@@ -34,7 +34,6 @@ class AppContainer extends React.Component{
   }
 
   componentDidMount(){
-    
     this.fetchData();
 
     this.setState({

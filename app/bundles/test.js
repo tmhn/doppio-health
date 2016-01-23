@@ -1,18 +1,13 @@
 'use strict';
 
 import React from 'react-native';
-import Theme from '../components/theme/theme';
 import Record from './components/record/record';
 
 var {
-  Image,
-  NavigatorIOS,
-  ListView,
-  StyleSheet,
-  View,
+  Component
 } = React;
 
-class Test extends React.Component{
+class Test extends Component{
   render() {
 
     var feedItems = [
@@ -27,13 +22,5 @@ class Test extends React.Component{
     );
   }
 };
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#FFF',
-  },
-});
 
 module.exports = Test; 

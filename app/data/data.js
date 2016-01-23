@@ -37,5 +37,12 @@ module.exports = {
 		'component': 'test',
 		'bio': 'Record app',
 	},
+	Fruit:
+	{
+		'ref': 'fruit',
+		'title': 'Fruit',
+		'component': 'fruit',
+		'bio': 'Fruits fruits fruits',
+	},
 
 };

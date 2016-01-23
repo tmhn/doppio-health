@@ -22,8 +22,12 @@ The purpose of this project is to allow healthcare professionals to produce smal
 
 The healthcare professional generates the "Bundle" from the DoppioHealth website using Visual Programming, the "Bundle" then is updated to the patient's iPhone. 
 
-The options for "Bundles" are Diet, Recorder, Tips and 
+The options for "Bundles" are Diet, Recorder, Tips and Guidance
 
+
+##Principles
+
+* DoppioHealth consumes a Theme file that is a collection of all styles, keeping components lightweight
 
 ##Further Work
 _\( not to be confused with [ToDos](https://github.com/tmhn/doppio-health/blob/master/todo.md) \)_

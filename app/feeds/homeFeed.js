@@ -10,6 +10,7 @@ var componentsRegistry = {
   flujab: require('../bundles/flujab'),
   optician: require('../bundles/optician'),
   test: require('../bundles/test'),
+  fruit: require('../bundles/fruit'),
 };
 
 var {

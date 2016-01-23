@@ -3,11 +3,11 @@
 import React from 'react-native';
 import Record from './components/record/record';
 
-var {
+let {
   Component
 } = React;
 
-class Pills extends React.Component{
+module.exports = class Pills extends Component{
   render() {
 
     var feedItems = [
@@ -22,5 +22,3 @@ class Pills extends React.Component{
     );
   }
 };
-
-module.exports = Pills;

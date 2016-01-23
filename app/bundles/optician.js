@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react-native');
-var Theme = require('../components/theme/theme');
+import React from 'react-native';
+import Theme from '../components/theme/theme';
 
-var {
-  StyleSheet,
+let {
+  Component,
   Text,
   View,
 } = React;
 
-class Optician extends React.Component{
+module.exports = class Optician extends Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
@@ -18,5 +18,3 @@ class Optician extends React.Component{
     );
   }
 };
-
-module.exports = Optician;

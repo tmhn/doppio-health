@@ -1,17 +1,17 @@
 // DoppioHealth - api.js
 'use strict';
 
- var React = require('react-native');
- var Theme = require('../components/theme/theme');
+ import React from 'react-native';
+ import Theme from '../components/theme/theme';
 
- var {
+ let {
  	View,
  	Text,
  	TouchableHighlight,
  	TouchableOpacity,
  } = React;
 
- var api = {
+ let api = {
 
  }; // var Api
 

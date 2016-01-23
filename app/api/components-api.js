@@ -1,9 +1,9 @@
 'use strict';
 
- var React = require('react-native');
- var Theme = require('../components/theme/theme');
+ import React from 'react-native';
+ import Theme from '../components/theme/theme';
 
- var {
+ let {
 	Text,
 	TextInput,
  	View,
@@ -11,7 +11,7 @@
  	TouchableOpacity,
  } = React;
 
- var ComponentsApi = {
+ let ComponentsApi = {
  	getButton(title, fn){
  		return (
  			<TouchableHighlight

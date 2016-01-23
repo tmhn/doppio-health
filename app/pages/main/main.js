@@ -1,18 +1,18 @@
 // DoppioHealth - main.js
+// ES5 - Due to AppRegistry
 
 'use strict';
- var React = require('react-native');
- var AppContainer = require('../app-container/app-container');
- var Login = require('../login/login');
+ import React from 'react-native';
+ import AppContainer from '../app-container/app-container';
+ import Login from '../login/login';
 
- var userService = require('../../helpers/UserService');
- var Theme = require('../../components/theme/theme');
- var _ = require('lodash');
+ import userService from '../../helpers/UserService';
+ import Theme from '../../components/theme/theme';
 
-var DB = require('../../data/db');
-var DBEvents = require('react-native-db-models').DBEvents
+import DB from '../../data/db';
+import DBEvents from 'react-native-db-models';
 
- var {
+ let {
     ActivityIndicatorIOS,
     NavigatorIOS,
     Text,

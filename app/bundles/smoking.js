@@ -1,15 +1,16 @@
 'use strict';
 
-var React = require('react-native');
-var Theme = require('../components/theme/theme');
+import React from 'react-native';
+import Theme from '../components/theme/theme';
 
-var {
+let {
+  Component,
   StyleSheet,
   Text,
   View,
 } = React;
 
-class Smoking extends React.Component{
+module.exports = class Smoking extends Component{
   render() {
     return (
       <View style={Theme.mainContainer}>
@@ -18,5 +19,3 @@ class Smoking extends React.Component{
     );
   }
 };
-
-module.exports = Smoking;

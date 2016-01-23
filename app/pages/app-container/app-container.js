@@ -1,30 +1,30 @@
 // DoppioHealth - app-container.js
 'use strict';
 
-var React = require('react-native');
-var Theme = require('../../components/theme/theme');
+import React from 'react-native';
+import Theme from '../../components/theme/theme';
 
-var HomeFeed = require('../../feeds/homeFeed');
-var DiaryFeed = require('../../feeds/diaryFeed');
-var Profile = require('../profile/profile');
-var authService = require('../../helpers/AuthService');
-var userService = require('../../helpers/UserService');
+import HomeFeed from '../../feeds/homeFeed';
+import DiaryFeed from '../../feeds/diaryFeed';
+import Profile from '../profile/profile';
+import authService from '../../helpers/AuthService';
+import userService from '../../helpers/UserService';
 
-var DB = require('../../data/db');
-var DBEvents = require('react-native-db-models').DBEvents
+import DB from '../../data/db';
+import DBEvents from 'react-native-db-models';
 
-var Main = require('../main/main');
+import Main from '../main/main';
 
-var {
+let {
   AlertIOS,
+  Component,
 	NavigatorIOS,
   TabBarIOS,
   StatusBarIOS,
-  StyleSheet,
   View,
 } = React;
 
-class AppContainer extends React.Component{
+module.exports = class AppContainer extends Component{
   constructor(props){
     super(props);
 
@@ -133,4 +133,3 @@ class AppContainer extends React.Component{
   }
 };
 
-module.exports = AppContainer;

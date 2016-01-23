@@ -1,13 +1,14 @@
 // DoppioHealth - login.js
 'use strict';
 
-var React = require('react-native');
-var ComponentsApi = require('../../api/components-api');
-var authService = require('../../helpers/AuthService');
-var Theme = require('../../components/theme/theme');
+import React from 'react-native';
+import ComponentsApi from '../../api/components-api';
+import authService from '../../helpers/AuthService';
+import Theme from '../../components/theme/theme';
 
-var {
+let {
 	ActivityIndicatorIOS,
+	Component,
 	Image,
   	StyleSheet,
   	Text,
@@ -16,7 +17,7 @@ var {
   	View,
 } = React;
 
-class Login extends React.Component{
+module.exports = class Login extends Component{
 
 	constructor(props){
 		super(props);
@@ -93,7 +94,6 @@ class Login extends React.Component{
   }
 };
 
-module.exports = Login;
 
 
 

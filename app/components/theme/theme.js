@@ -1,11 +1,17 @@
 // DoppioHealth - theme.js
 
-'use strict';
-var React = require('react-native');
-
 module.exports = {
 
-// 
+// Login
+
+	loginError:{
+		color: 'red',
+		paddingTop: 10,
+		justifyContent: 'center',
+		fontFamily: 'Avenir',
+		alignSelf: 'stretch',
+	},
+
 // AppContainer -> TabBar for application
 	appContainer: {
 		flex: 1,
@@ -110,11 +116,5 @@ module.exports = {
 
 
 
-	loginError:{
-		color: 'red',
-		paddingTop: 10,
-		justifyContent: 'center',
-		fontFamily: 'Avenir',
-		alignSelf: 'stretch',
-	}
+
 };

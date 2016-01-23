@@ -8,10 +8,10 @@ var {
 	Image,
 	ListView,
 	NavigatorIOS,
-  	StyleSheet,
-  	Text,
-  	TouchableHighlight,
-  	View,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	View,
 } = React;
 
 class Record extends React.Component{

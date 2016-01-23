@@ -1,20 +1,24 @@
 'use strict';
 
-var React = require('react-native');
-var Theme = require('../components/theme/theme');
+import React from 'react-native';
+import Record from './components/record/record';
 
 var {
-  StyleSheet,
-  Text,
-  View,
+  Component
 } = React;
 
 class Pills extends React.Component{
   render() {
+
+    var feedItems = [
+    {'id': '1', 'name': 'Paracetamol', 'bio': 'Extra strength', 'count': 3, 'frequencyText': '3x daily'}, 
+    {'id': '2', 'name': 'Ibuprofen', 'bio': 'Normal', 'count': 8, 'frequencyText': '3x daily'}, 
+    {'id': '3', 'name': 'Codeine', 'bio': 'Hospital strength', 'count': 2, 'frequencyText': '3x daily'}, 
+    {'id': '4', 'name': 'Fluclox', 'bio': 'Hospital strength', 'count': 6}
+  ];
+
     return (
-      <View style={Theme.mainContainer}>
-      	<Text style={Theme.title}>Pills page</Text>
-      </View>
+        <Record data={feedItems}/>
     );
   }
 };

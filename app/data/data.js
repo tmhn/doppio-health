@@ -30,13 +30,6 @@ module.exports = {
 		'bio': 'Go get some new glasses Tommy',
 
 	},
-	Test:
-	{
-		'ref': 'test',
-		'title': 'Test',
-		'component': 'test',
-		'bio': 'Record app',
-	},
 	Fruit:
 	{
 		'ref': 'fruit',

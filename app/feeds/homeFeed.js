@@ -1,10 +1,11 @@
 /* @flow */
 'use strict';
 
-var React = require('react-native');
-var FeedData = require('../data/data');
+import React from 'react-native';
+import FeedData from '../data/data';
+import Theme from '../components/theme/theme';
 
-var componentsRegistry = {
+let componentsRegistry = {
   smoking: require('../bundles/smoking'),
   pills: require('../bundles/pills'),
   flujab: require('../bundles/flujab'),
@@ -12,7 +13,8 @@ var componentsRegistry = {
   fruit: require('../bundles/fruit'),
 };
 
-var {
+let {
+  Component,
   NavigatorIOS,
   ListView,
   StyleSheet,
@@ -21,11 +23,11 @@ var {
   View,
 } = React;
 
-class HomeFeed extends React.Component{
+module.exports = class HomeFeed extends Component{
   constructor(props){
     super(props);
 
-    var ds = new ListView.DataSource({
+    let ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 != r2
     });
 
@@ -39,7 +41,7 @@ class HomeFeed extends React.Component{
   }
 
   onPress(rowData){
-    var component = componentsRegistry[rowData.ref];
+    let component = componentsRegistry[rowData.ref];
 
     this.props.navigator.push({
       title: `${rowData.title}`,
@@ -52,12 +54,12 @@ class HomeFeed extends React.Component{
       <TouchableHighlight
           onPress={()=> this.onPress(rowData)}
           underlayColor='#FFF' >
-          <View style={styles.rowView}>
-            <View style={styles.rowViewText}>
-              <Text style={styles.rowViewTitle}>
+          <View style={Theme.homefeed_rowView}>
+            <View style={Theme.homefeed_rowViewText}>
+              <Text style={Theme.homefeed_rowViewTitle}>
                 {rowData.title}
               </Text>
-              <Text style={styles.rowViewBio}>
+              <Text style={Theme.homefeed_rowViewBio}>
                 {rowData.bio}
               </Text>
             </View>
@@ -67,7 +69,7 @@ class HomeFeed extends React.Component{
   }
 
   fetchFeed(){
-    var feedItems = FeedData;
+    let feedItems = FeedData;
 
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(feedItems)
@@ -76,7 +78,7 @@ class HomeFeed extends React.Component{
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={Theme.homefeed_container}>
       	<ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)} />
@@ -84,49 +86,3 @@ class HomeFeed extends React.Component{
     );
   }
 };
-
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#FFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  rowView: {
-    flex: 1,
-    flexDirection: 'row',
-    padding: 20,
-    alignItems: 'center',
-    borderColor: '#D7D7D7',
-    borderBottomWidth: 1,
-  },
-  rowViewText: {
-    paddingLeft: 20,
-  },
-
-  rowViewTitle: {
-    backgroundColor: '#FFF',
-    color: '#498EE0', 
-    fontWeight: '700',
-    fontFamily: 'Avenir',
-    fontSize: 20,
-  },
-
-  rowViewBio: {
-    backgroundColor: '#FFF',
-    fontFamily: 'Avenir',
-  }
-});
-
-
-module.exports = HomeFeed;

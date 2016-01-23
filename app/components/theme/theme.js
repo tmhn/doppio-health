@@ -19,9 +19,61 @@ module.exports = {
 	    alignItems: 'center',
 	    backgroundColor: '#FFF',
 	},
+// ------ Bundle Components ------
+// Diet
+
+// Record
+	record_container: {
+
+	},
+
+// Tips
+
+// Guidance 
+
+
+// ------ Feeds ------
 //	HomeFeed
+	homefeed_container: {
+		flex: 1,
+		justifyContent: 'flex-start',
+    	backgroundColor: '#FFF',
+	},
+	homefeed_rowView: {
+		flex: 1,
+    	flexDirection: 'row',
+    	padding: 20,
+    	alignItems: 'center',
+    	borderColor: '#D7D7D7',
+    	borderBottomWidth: 1,
+	},
+	homefeed_rowViewText: {
+		paddingLeft: 20,
+	},
+	homefeed_rowViewTitle: {
+		backgroundColor: '#FFF',
+    	color: '#498EE0', 
+    	fontWeight: '700',
+    	fontFamily: 'Avenir',
+    	fontSize: 20,
+	},
+	homefeed_rowViewBio: {
+		backgroundColor: '#FFF',
+    	fontFamily: 'Avenir',
+	},
+
 //	DiaryFeed
 	
+// ------ Pages ------
+
+// 	App-Container
+	// inline styles used
+
+// 	Login
+	// inline styles used
+
+// 	Main
+	// mainContainer
 
 // 	Profile
 	profileContainer: {
@@ -33,6 +85,41 @@ module.exports = {
 		justifyContent: 'center',
 		backgroundColor: '#FFF',
 	},
+	profile_imageRow: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		marginBottom: 30,
+	},
+	profile_profileImage: {
+		height: 85,
+		width: 85,
+	},
+	profile_profileName: {
+		fontFamily: 'Avenir',
+		fontSize: 25,
+		color: '#000',
+		fontWeight: '600',
+	},
+	profile_profileDetails: {
+		fontFamily: 'Avenir',
+		fontSize: 18,
+		color: '#000',
+		fontWeight: '600',
+		padding: 5,
+	},
+	profile_profileDetailsLite: {
+		fontWeight: '300',
+	},
+	profile_textRow: {
+		paddingTop: 5,
+		marginLeft: 25,
+	},
+	profile_detailsText: {
+		paddingTop: 5,
+		alignItems: 'center',
+	},
+//
+//
 //
 	button: {
 		height: 45,
@@ -73,6 +160,8 @@ module.exports = {
 		color: '#FFF',
 		fontFamily: 'Avenir',
 	},
+
+// ------ Utils ------
 // Logo
 	logoNormalTitle:{
 		marginBottom: 20,
@@ -93,6 +182,8 @@ module.exports = {
 	normalText: {
 		fontFamily: 'Avenir',
 	},
+
+// Misc
 	searchInput: {
 		height: 50,
 		padding: 4,

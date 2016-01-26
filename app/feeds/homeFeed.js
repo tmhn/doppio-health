@@ -40,6 +40,14 @@ module.exports = class HomeFeed extends Component{
     this.fetchFeed();
   }
 
+  fetchFeed(){
+    let feedItems = FeedData;
+
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(feedItems)
+    });
+  }
+
   onPress(rowData){
     let component = componentsRegistry[rowData.ref];
 
@@ -47,6 +55,15 @@ module.exports = class HomeFeed extends Component{
       title: `${rowData.title}`,
       component: component,
     });
+  }
+
+  renderHeader(){
+    return (
+      <View style={Theme.homefeed_header}>
+        <Text style={Theme.homefeed_headerTitle}>Hi Tom</Text>
+        <Text style={Theme.homefeed_headerText}>These are your bundles</Text>
+      </View>
+    );
   }
 
   renderRow(rowData){
@@ -68,21 +85,17 @@ module.exports = class HomeFeed extends Component{
     );
   }
 
-  fetchFeed(){
-    let feedItems = FeedData;
-
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems)
-    });
-  }
+  
 
   render() {
     return (
       <View style={Theme.homefeed_container}>
-      	<ListView
+        <ListView
           dataSource={this.state.dataSource}
+          renderHeader={this.renderHeader}
           renderRow={this.renderRow.bind(this)} />
       </View>
     );
   }
 };
+

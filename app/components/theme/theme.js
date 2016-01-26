@@ -103,7 +103,24 @@ module.exports = {
 		backgroundColor: '#FFF',
     	fontFamily: 'Avenir',
 	},
-
+	homefeed_header: {
+		backgroundColor: '#ff5a5f',
+      	height: 250,
+      	flex: 1,
+      	alignItems: 'center',
+      	flex: 1,
+	},
+	homefeed_headerTitle: {
+		color: '#fff',
+		fontFamily: 'Avenir',
+		fontSize: 22,
+		paddingTop: 65,
+	},
+	homefeed_headerText: {
+		color: '#fff',
+		fontFamily: 'Avenir',
+		
+	},
 //	DiaryFeed
 	
 // ------ Pages ------

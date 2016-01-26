@@ -71,12 +71,12 @@ module.exports = class HomeFeed extends Component{
       <TouchableHighlight
           onPress={()=> this.onPress(rowData)}
           underlayColor='#FFF' >
-          <View style={Theme.homefeed_rowView}>
-            <View style={Theme.homefeed_rowViewText}>
-              <Text style={Theme.homefeed_rowViewTitle}>
+          <View style={Theme.homefeed_row}>
+            <View style={Theme.homefeed_rowText}>
+              <Text style={Theme.homefeed_rowTitle}>
                 {rowData.title}
               </Text>
-              <Text style={Theme.homefeed_rowViewBio}>
+              <Text style={Theme.homefeed_rowBio}>
                 {rowData.bio}
               </Text>
             </View>

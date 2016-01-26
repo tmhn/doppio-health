@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react-native';
-import Record from './components/record/record';
+import Diet from './components/diet/diet';
 
 let {
 	Component
@@ -17,7 +17,7 @@ module.exports = class Fruit extends Component{
 		];
 
 		return (
-			<Record data={feedItems} />
+			<Diet data={feedItems} />
 		);
 	}
 };

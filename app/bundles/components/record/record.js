@@ -8,8 +8,6 @@ let {
   Component,
 	Image,
 	ListView,
-	NavigatorIOS,
-	StyleSheet,
 	Text,
 	TouchableHighlight,
 	View,

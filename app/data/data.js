@@ -1,4 +1,11 @@
 module.exports = {
+	Fruit:
+	{
+		'ref': 'fruit',
+		'title': 'Fruit',
+		'component': 'fruit',
+		'bio': 'Fruits fruits fruits',
+	},
 	Smoking: 
 	{	
 		'ref': 'smoking',
@@ -30,12 +37,6 @@ module.exports = {
 		'bio': 'Go get some new glasses Tommy',
 
 	},
-	Fruit:
-	{
-		'ref': 'fruit',
-		'title': 'Fruit',
-		'component': 'fruit',
-		'bio': 'Fruits fruits fruits',
-	},
+	
 
 };

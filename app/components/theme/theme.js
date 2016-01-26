@@ -3,7 +3,6 @@
 module.exports = {
 
 // Login
-
 	loginError:{
 		color: 'red',
 		paddingTop: 10,
@@ -21,6 +20,43 @@ module.exports = {
 	},
 // ------ Bundle Components ------
 // Diet
+	diet_container: {
+		flex: 1,
+		justifyContent: 'flex-start',
+		backgroundColor: '#FFF',
+	},
+	diet_rowView: {
+		flex: 1,
+	    flexDirection: 'row',
+	    padding: 20,
+	    paddingTop: 30,
+	    paddingBottom: 30,
+	    alignItems: 'center',
+	    borderColor: '#D7D7D7',
+	    borderBottomWidth: 1,
+	},
+	diet_rowText: {
+		paddingLeft: 20,
+	},
+	diet_rowTitle: {
+		backgroundColor: '#FFF', 
+	    fontWeight: '700',
+	    fontFamily: 'Avenir',
+	    fontSize: 20,
+	    color: '#498EE0',
+	},
+	diet_rowBio: {
+		backgroundColor: '#FFF',
+    	fontFamily: 'Avenir',
+	},
+	diet_rowTimes: {
+		paddingTop: 15,
+		paddingBottom: 5,
+	},
+	diet_rowTimesIcon: {
+		height: 35,
+	    width: 35,
+	},
 
 // Record
 	record_container: {
@@ -68,6 +104,52 @@ module.exports = {
 	    marginLeft: 15,
 	},
 
+// Reminder
+	reminder_container: {
+		flex: 1,
+		justifyContent: 'flex-start',
+		backgroundColor: '#FFF',
+	},
+	reminder_rowView: {
+		flex: 1,
+	    flexDirection: 'row',
+	    padding: 20,
+	    paddingTop: 30,
+	    paddingBottom: 30,
+	    alignItems: 'center',
+	    borderColor: '#D7D7D7',
+	    borderBottomWidth: 1,
+	},
+	reminder_rowText: {
+		paddingLeft: 20,
+	},
+	reminder_rowTitle: {
+		backgroundColor: '#FFF', 
+	    fontWeight: '700',
+	    fontFamily: 'Avenir',
+	    fontSize: 20,
+	    color: '#498EE0',
+	},
+	reminder_rowBio: {
+		backgroundColor: '#FFF',
+    	fontFamily: 'Avenir',
+    	paddingBottom: 10,
+	},
+	reminder_timesSection: {
+		flexDirection: 'row',
+		//paddingTop: 15,
+	},
+	reminder_timesIcon: {
+		height: 25,
+	    width: 25,
+	},
+	reminder_timesTextRow: {
+		paddingTop: 5,
+		paddingLeft: 10,
+	},
+	reminder_timesText: {
+		paddingBottom: 4,
+	},
 // Tips
 
 // Guidance 
@@ -81,7 +163,7 @@ module.exports = {
 		justifyContent: 'flex-start',
     	backgroundColor: '#FFF',
 	},
-	homefeed_rowView: {
+	homefeed_row: {
 		flex: 1,
     	flexDirection: 'row',
     	padding: 20,
@@ -89,17 +171,17 @@ module.exports = {
     	borderColor: '#D7D7D7',
     	borderBottomWidth: 1,
 	},
-	homefeed_rowViewText: {
+	homefeed_rowText: {
 		paddingLeft: 20,
 	},
-	homefeed_rowViewTitle: {
+	homefeed_rowTitle: {
 		backgroundColor: '#FFF',
     	color: '#498EE0', 
     	fontWeight: '700',
     	fontFamily: 'Avenir',
     	fontSize: 20,
 	},
-	homefeed_rowViewBio: {
+	homefeed_rowBio: {
 		backgroundColor: '#FFF',
     	fontFamily: 'Avenir',
 	},
@@ -113,7 +195,7 @@ module.exports = {
 	homefeed_headerTitle: {
 		color: '#fff',
 		fontFamily: 'Avenir',
-		fontSize: 22,
+		fontSize: 28,
 		paddingTop: 65,
 	},
 	homefeed_headerText: {

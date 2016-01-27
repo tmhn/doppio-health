@@ -32,7 +32,7 @@ module.exports = class Record extends Component{
 
   fetchFeed(){
     let feedItems = this.props.data;
-    
+    console.log(feedItems.length);
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(feedItems)
     });
@@ -50,11 +50,12 @@ module.exports = class Record extends Component{
   }
 
   renderRow(rowData){
+
     return (
       <View style={Theme.record_rowView}>
         <View style={Theme.record_rowText}>
           <Text style={Theme.record_rowTitle}>
-            {rowData.name}
+            {rowData.type}
           </Text>
           <Text style={Theme.record_rowBio}>
             {rowData.bio}
@@ -71,11 +72,11 @@ module.exports = class Record extends Component{
             onPress={this.decrementor.bind(this, rowData.count)}
             underlayColor={'#FFF'}>
             <Image 
-              source={require('../../../components/icons/minus_solid.png')}
+              source={require('../../../components/icons/minus_red.png')}
               style={Theme.record_rowIcon} />
           </TouchableHighlight>
 
-          <Text style={Theme.record_rowValue}>{rowData.count}</Text>
+          <Text style={Theme.record_rowValue}>{rowData.numbercount}</Text>
 
           <TouchableHighlight
             onPress={this.incrementor.bind(this, rowData.count, rowData)}

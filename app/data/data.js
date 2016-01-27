@@ -1,42 +1,41 @@
 module.exports = {
-	Fruit:
-	{
-		'ref': 'fruit',
-		'title': 'Fruit',
-		'component': 'fruit',
-		'bio': 'Fruits fruits fruits',
-	},
-	Smoking: 
-	{	
-		'ref': 'smoking',
-		'title': 'Smoking',
-		'component': 'smoking',
-		'bio': 'Helping keeping a count on cigarettes',
+	"userInfo": [{
+		"username": "tom",
+		"password": "tom",
+		"firstName": "Tom",
+		"lastName": "Hanson",
+		"age": 21,
+		"homeBio": "Welcome to DoppioHealth"
+	}],
+	"apps": [{
+		"ref": "fruit",
+		"title": "Fruit",
+		"bundle": "record",
+		"component": "Fruit",
+		"props": [{
+			"name": "Apple",
+			"bio": "Pink Lady",
+			"count": 3,
+			"frequencyText": "3x daily"
+		}, {
+			"name": "Banana",
+			"bio": "Candy banana",
+			"count": 5,
+			"frequencyText": "4x daily"
+		}],
+		"bio": "Not nearly enough mangoes"
 
-	},
-	Pills:
-	{
-		'ref': 'pills',
-		'title': 'Pills',
-		'component': 'pills',
-		'bio': 'Winter Pill counter',
-	},
-	FluJab: 
-	{	
-		'ref': 'flujab',
-		'title': 'FluJab',
-		'component': 'flujab',
-		'bio': 'Winter flujab reminder 2',
-
-	},
-	Optician: 
-	{	
-		'ref': 'optician',
-		'title': 'Optician',
-		'component': 'optician',
-		'bio': 'Go get some new glasses Tommy',
-
-	},
-	
-
+	}, {
+		"ref": "smoking",
+		"title": "Smoking",
+		"bundle": "record",
+		"component": "Smoking",
+		"bio": "Helping keeping a count on cigarettes"
+	}, {
+		"ref": "pills",
+		"title": "Pills",
+		"bundle": "record",
+		"component": "Pills",
+		"bio": "Winter Pill counter"
+	}]
 };

@@ -32,7 +32,7 @@ module.exports = class HomeFeed extends Component{
     });
 
     this.state = {
-      dataSource: ds.cloneWithRows(['A', 'B', 'C'])
+      dataSource: ds.cloneWithRows(['A', 'B', 'C']),
     };
   }
 
@@ -44,7 +44,7 @@ module.exports = class HomeFeed extends Component{
     let feedItems = FeedData;
 
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems)
+      dataSource: this.state.dataSource.cloneWithRows(feedItems.apps),
     });
   }
 
@@ -92,7 +92,7 @@ module.exports = class HomeFeed extends Component{
       <View style={Theme.homefeed_container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderHeader={this.renderHeader}
+          renderHeader={this.renderHeader.bind(this)}
           renderRow={this.renderRow.bind(this)} />
       </View>
     );

@@ -39,9 +39,7 @@ module.exports = class Reminder extends Component{
 	}
 
 	renderReminderSection(rowData){
-		return(
-			<Text style={Theme.reminder_timesText}>{rowData.frequency}</Text>
-		);
+		//console.log(rowData.frequency);
 	}
 
 	renderRow(rowData){
@@ -57,11 +55,13 @@ module.exports = class Reminder extends Component{
 
 		          <View style={Theme.reminder_timesSection}>
 		          	<Image
-		          		source={require('../../../components/icons/clock.png')}
+		          		source={require('../../../components/icons/clock_red.png')}
 		          		style={Theme.reminder_timesIcon} />
 		          		<View style={Theme.reminder_timesTextRow}>
 			          		<Text style={Theme.reminder_timesText}>7AM - 9AM</Text>
 			          		<Text style={Theme.reminder_timesText}>10AM - 12PM</Text>
+
+			          		{this.renderReminderSection(rowData)}
 		          		</View>
 		          </View>
 

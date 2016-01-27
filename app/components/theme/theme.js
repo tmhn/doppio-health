@@ -140,8 +140,8 @@ module.exports = {
 		//paddingTop: 15,
 	},
 	reminder_timesIcon: {
-		height: 25,
-	    width: 25,
+		height: 28,
+	    width: 28,
 	},
 	reminder_timesTextRow: {
 		paddingTop: 5,
@@ -187,7 +187,7 @@ module.exports = {
 	},
 	homefeed_header: {
 		backgroundColor: '#ff5a5f',
-      	height: 250,
+      	height: 210,
       	flex: 1,
       	alignItems: 'center',
       	flex: 1,
@@ -195,7 +195,7 @@ module.exports = {
 	homefeed_headerTitle: {
 		color: '#fff',
 		fontFamily: 'Avenir',
-		fontSize: 28,
+		fontSize: 32,
 		paddingTop: 65,
 	},
 	homefeed_headerText: {

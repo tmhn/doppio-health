@@ -10,6 +10,7 @@ let {
 	Image,
 	ListView,
   	Text,
+  	TouchableHighlight,
   	View,
 } = React;
 
@@ -32,32 +33,30 @@ module.exports = class Diet extends Component{
 
 	fetchFeed(){
 		let feedItems = this.props.data;
+		console.log(feedItems.length);
 
 		this.setState({
 			dataSource: this.state.dataSource.cloneWithRows(feedItems)
 		});
 	}
 
-	renderTimeIcons(){
-		// Loops over the times and returns an icon and time for each item
+	onPress(rowData){
+		console.log(`open page ${rowData.name}`);
 	}
 
 	renderRow(rowData){
 		return(
-			<View style={Theme.diet_rowView}>
-				<View style={Theme.diet_rowText}>
-		        	<Text style={Theme.diet_rowTitle}>
-		            	{rowData.name}
-		          	</Text>
-		          	<Text style={Theme.diet_rowBio}>
-		           		{rowData.bio}
-		          	</Text>
-			        <Text style={Theme.diet_rowBio}>
-			        	{rowData.frequencyText}
-			        </Text>
-
-		        </View>
-			</View>
+			<TouchableHighlight
+				onPress={()=> this.onPress(rowData)}
+				underlayColor='#FFF'>
+				<View style={Theme.diet_rowView}>
+					<View style={Theme.diet_rowText}>
+			        	<Text style={Theme.diet_rowTitle}>
+			            	{rowData.name}
+			          	</Text>
+			        </View>
+				</View>
+			</TouchableHighlight>
 		);
 	}
 

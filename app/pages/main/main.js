@@ -67,7 +67,7 @@ var Main = React.createClass({
 
 		if(this.state.isLoggedIn){
 			return(
-				<AppContainer />
+				<AppContainer/>
 			);
 		}else{
 			return(

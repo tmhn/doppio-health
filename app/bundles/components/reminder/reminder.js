@@ -34,7 +34,7 @@ module.exports = class Reminder extends Component{
 		let feedItems = this.props.data;
 
 		this.setState({
-			dataSource: this.state.dataSource.cloneWithRows(feedItems)
+			dataSource: this.state.dataSource.cloneWithRows(feedItems.cats)
 		});
 	}
 
@@ -58,8 +58,8 @@ module.exports = class Reminder extends Component{
 		          		source={require('../../../components/icons/clock_red.png')}
 		          		style={Theme.reminder_timesIcon} />
 		          		<View style={Theme.reminder_timesTextRow}>
-			          		<Text style={Theme.reminder_timesText}>7AM - 9AM</Text>
-			          		<Text style={Theme.reminder_timesText}>10AM - 12PM</Text>
+			          		<Text style={Theme.reminder_timesText}>{rowData.frequencyText1}</Text>
+			          		<Text style={Theme.reminder_timesText}>{rowData.frequencyText2}</Text>
 
 			          		{this.renderReminderSection(rowData)}
 		          		</View>

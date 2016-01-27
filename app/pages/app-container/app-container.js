@@ -11,6 +11,7 @@ import authService from '../../helpers/AuthService';
 import userService from '../../helpers/UserService';
 
 import DB from '../../data/db';
+import UserData from '../../data/data';
 import DBEvents from 'react-native-db-models';
 
 import Main from '../main/main';
@@ -70,7 +71,8 @@ module.exports = class AppContainer extends Component{
             titleTextColor='#FFF'
             initialRoute={{
               title: 'Home',
-              component: HomeFeed
+              component: HomeFeed,
+              passProps: {data: UserData}
             }} />
         </TabBarIOS.Item>
 

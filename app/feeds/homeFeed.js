@@ -11,6 +11,10 @@ let componentsRegistry = {
   flujab: require('../bundles/flujab'),
   optician: require('../bundles/optician'),
   fruit: require('../bundles/fruit'),
+
+  diet: require('../bundles/components/diet/diet'),
+  record: require('../bundles/components/record/record'),
+  reminder: require('../bundles/components/reminder/reminder')
 };
 
 let {
@@ -22,6 +26,7 @@ let {
   TouchableHighlight,
   View,
 } = React;
+
 
 module.exports = class HomeFeed extends Component{
   constructor(props){
@@ -49,19 +54,25 @@ module.exports = class HomeFeed extends Component{
   }
 
   onPress(rowData){
-    let component = componentsRegistry[rowData.ref];
+    let component = componentsRegistry[rowData.bundle];
 
     this.props.navigator.push({
       title: `${rowData.title}`,
       component: component,
+      passProps: {
+          data: rowData
+      }
+
     });
   }
 
   renderHeader(){
+    let localUserInfo = this.props.data;
+
     return (
       <View style={Theme.homefeed_header}>
-        <Text style={Theme.homefeed_headerTitle}>Hi Tom</Text>
-        <Text style={Theme.homefeed_headerText}>These are your bundles</Text>
+        <Text style={Theme.homefeed_headerTitle}>Hi {this.props.data.userInfo.firstName}</Text>
+        <Text style={Theme.homefeed_headerText}>{this.props.data.userInfo.homeBio}</Text>
       </View>
     );
   }

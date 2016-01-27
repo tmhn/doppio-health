@@ -34,20 +34,10 @@ module.exports = class Record extends Component{
     let feedItems = this.props.data;
     console.log(feedItems.length);
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems)
+      dataSource: this.state.dataSource.cloneWithRows(feedItems.cats)
     });
   }
 
-  decrementor(count){
-    console.log('Decrementor pressed');
-    console.log(count - 1);
-  }
-
-  incrementor(count, rowData){
-    console.log(rowData.totalrows);
-    console.log('Incrementer pressed');
-    let incCount = (count + 1);
-  }
 
   renderRow(rowData){
 
@@ -55,42 +45,19 @@ module.exports = class Record extends Component{
       <View style={Theme.record_rowView}>
         <View style={Theme.record_rowText}>
           <Text style={Theme.record_rowTitle}>
-            {rowData.type}
+            {rowData.name}
           </Text>
           <Text style={Theme.record_rowBio}>
             {rowData.bio}
           </Text>
-
-          <Text style={Theme.record_rowBio}>
-            {rowData.frequencyText}
-          </Text>
-
-        </View>
-
-        <View style={Theme.record_rowRightContainer}>
-          <TouchableHighlight
-            onPress={this.decrementor.bind(this, rowData.count)}
-            underlayColor={'#FFF'}>
-            <Image 
-              source={require('../../../components/icons/minus_red.png')}
-              style={Theme.record_rowIcon} />
-          </TouchableHighlight>
-
-          <Text style={Theme.record_rowValue}>{rowData.numbercount}</Text>
-
-          <TouchableHighlight
-            onPress={this.incrementor.bind(this, rowData.count, rowData)}
-            underlayColor={'#FFF'}>
-            <Image 
-              source={require('../../../components/icons/plus_solid.png')}
-              style={Theme.record_rowIcon} />
-          </TouchableHighlight>
         </View>
       </View>
     );
   }
 
   render() {
+    console.log(this.state.dataSource._cachedRowCount);
+
     return (
       <View style={Theme.record_container}>
         <ListView

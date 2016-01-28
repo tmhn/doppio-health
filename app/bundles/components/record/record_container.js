@@ -3,6 +3,7 @@
 
 import React from 'react-native';
 import Theme from '../../../components/theme/theme';
+import Record from './record';
 
 let {
   Component,
@@ -13,7 +14,7 @@ let {
   View,
 } = React;
 
-module.exports = class Record extends Component{
+module.exports = class RecordContainer extends Component{
   constructor(props){
     super(props);
 
@@ -40,7 +41,13 @@ module.exports = class Record extends Component{
   }
 
   onPress(rowData){
-
+    this.props.navigator.push({
+      title: rowData.name,
+      component: Record,
+      passProps: {
+        data: rowData
+      }
+    });
   }
 
 

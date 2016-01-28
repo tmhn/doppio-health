@@ -33,4 +33,4 @@ The options for "Bundles" are Diet, Recorder, Tips and Guidance
 _\( not to be confused with [ToDos](https://github.com/tmhn/doppio-health/blob/master/todo.md) \)_
 
 * Integrate with an auto-updater library to allow users to recieve specific updates
-* Danger Levels - If a medicine then an alert will show if you are close to the recommended dosage
+* Danger Levels - If you have taken a medicine, then an alert will show if you are close to the recommended dosage

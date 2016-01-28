@@ -2,13 +2,12 @@
 'use strict';
 
 import React from 'react-native';
-//import FeedData from '../data/data';
 import Theme from '../components/theme/theme';
 
 let componentsRegistry = {
-  diet: require('../bundles/components/diet/diet'),
-  record: require('../bundles/components/record/record'),
-  reminder: require('../bundles/components/reminder/reminder')
+  diet: require('../bundles/components/diet/diet_container'),
+  record: require('../bundles/components/record/record_container'),
+  reminder: require('../bundles/components/reminder/reminder_container')
 };
 
 let {

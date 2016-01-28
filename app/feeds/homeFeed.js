@@ -2,16 +2,10 @@
 'use strict';
 
 import React from 'react-native';
-import FeedData from '../data/data';
+//import FeedData from '../data/data';
 import Theme from '../components/theme/theme';
 
 let componentsRegistry = {
-  smoking: require('../bundles/smoking'),
-  pills: require('../bundles/pills'),
-  flujab: require('../bundles/flujab'),
-  optician: require('../bundles/optician'),
-  fruit: require('../bundles/fruit'),
-
   diet: require('../bundles/components/diet/diet'),
   record: require('../bundles/components/record/record'),
   reminder: require('../bundles/components/reminder/reminder')
@@ -46,7 +40,7 @@ module.exports = class HomeFeed extends Component{
   }
 
   fetchFeed(){
-    let feedItems = FeedData;
+    let feedItems = this.props.data;
 
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(feedItems.apps),

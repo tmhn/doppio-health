@@ -2,6 +2,7 @@
 'use strict';
 
 import React from 'react-native';
+import Theme from '../../../components/theme/theme';
 
 let {
   Component,
@@ -13,7 +14,9 @@ let {
 module.exports = class Record extends Component{
   render() {
     return (
-      <View />
+      <View style={Theme.mainContainer}>
+      	<Text style={Theme.title}>{this.props.data.name}</Text>
+      </View>
     );
   }
 };

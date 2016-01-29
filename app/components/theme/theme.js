@@ -204,7 +204,33 @@ module.exports = {
 		
 	},
 //	DiaryFeed
-	
+	diary_container: {
+		flex: 1,
+		justifyContent: 'flex-start',
+    	backgroundColor: '#FFF',
+	},
+	diary_row: {
+		flex: 1,
+    	flexDirection: 'row',
+    	padding: 20,
+    	alignItems: 'center',
+    	borderColor: '#D7D7D7',
+    	borderBottomWidth: 1,
+	},
+	diary_rowText: {
+		paddingLeft: 20,
+	},
+	diary_rowTitle: {
+		backgroundColor: '#FFF',
+    	color: '#498EE0', 
+    	fontWeight: '700',
+    	fontFamily: 'Avenir',
+    	fontSize: 20,
+	},
+	diary_rowBio: {
+		backgroundColor: '#FFF',
+    	fontFamily: 'Avenir',
+	},
 // ------ Pages ------
 
 // 	App-Container

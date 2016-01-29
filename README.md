@@ -20,11 +20,11 @@ open ios/DoppioHealth.xcodeproj
 
 The purpose of this project is to allow healthcare professionals to produce small _Micro-Apps_ for patients that they can use to monitor their health and lifestyle. 
 
-###Micro-Apps
+####Micro-Apps
 
 The healthcare professional generates the _Micro-App_ from the DoppioHealth website using Visual Programming, the _Micro-App_ then is updated to the patient's iPhone. 
 
-###Bundles
+####Bundles
 
 The options for _Bundles_ are Diet, Recorder, Tips and Guidance
 

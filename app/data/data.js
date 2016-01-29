@@ -5,6 +5,8 @@ module.exports = {
 		"firstName": "Tom",
 		"lastName": "Hanson",
 		"age": 21,
+		"bloodGroup": 'O+',
+		"allergies": "Penecillin",
 		"homeBio": "Welcome to DoppioHealth iOS"
 	},
 	"apps": [{

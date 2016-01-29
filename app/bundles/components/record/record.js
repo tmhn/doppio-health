@@ -16,6 +16,8 @@ module.exports = class Record extends Component{
     return (
       <View style={Theme.mainContainer}>
       	<Text style={Theme.title}>{this.props.data.name}</Text>
+      	<Text style={Theme.title}>{this.props.data.bio}</Text>
+      	<Text style={Theme.title}>{this.props.data.count}</Text>
       </View>
     );
   }

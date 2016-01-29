@@ -110,6 +110,7 @@ module.exports = class AppContainer extends Component{
             initialRoute={{
               title: 'Profile',
               component: Profile,
+              passProps: {data: UserData},
               rightButtonIcon: require('../../components/icons/settings.png'),
               onRightButtonPress: () => {
                 AlertIOS.alert(

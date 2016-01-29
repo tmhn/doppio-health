@@ -15,37 +15,47 @@ let {
 
 module.exports = class Profile extends Component{
 
-  render() {
-    return (
-      <View style={Theme.profileContainer}>
-      	<View style={Theme.profile_imageRow}>
-      		<Image
-      			source={require('../../components/icons/personProfile.png')}
-      			style={Theme.profile_profileImage} />
-			<View style={Theme.profile_textRow}>
-				<Text style={Theme.profile_profileName}>Tom</Text>
-				<Text style={Theme.profile_profileName}>Hanson</Text>
-			</View>
-		</View>
-		<View style={Theme.profile_detailsText}>
-				<Text style={Theme.profile_profileDetails}>
-					Name: <Text style={Theme.profile_profileDetailsLite}>Tom Hanson</Text>
-				</Text>
-				<Text style={Theme.profile_profileDetails}>
-					Username: <Text style={Theme.profile_profileDetailsLite}>Tom</Text>
-				</Text>
-				<Text style={Theme.profile_profileDetails}>
-					Website: <Text style={Theme.profile_profileDetailsLite}>tmhn.io</Text>
-				</Text>
-				<Text style={Theme.profile_profileDetails}>
-					Email: <Text style={Theme.profile_profileDetailsLite}>tom@tmhn.io</Text>
-				</Text>
-				<Text style={Theme.profile_profileDetails}>
-					Gender: <Text style={Theme.profile_profileDetailsLite}>Male</Text>
-				</Text>
-			</View>
-      </View>
+	componentDidMount(){
+		this.fetchData();
+	}
 
-    );
-  }
+	fetchData(){
+		
+	}
+
+	render() {
+		let feedData = this.props.data.userInfo;
+
+		return (
+		  <View style={Theme.profileContainer}>
+		  	<View style={Theme.profile_imageRow}>
+		  		<Image
+		  			source={require('../../components/icons/personProfile.png')}
+		  			style={Theme.profile_profileImage} />
+				<View style={Theme.profile_textRow}>
+					<Text style={Theme.profile_profileName}>{feedData.firstName}</Text>
+					<Text style={Theme.profile_profileName}>{feedData.lastName}</Text>
+				</View>
+			</View>
+			<View style={Theme.profile_detailsText}>
+					<Text style={Theme.profile_profileDetails}>
+						Name: <Text style={Theme.profile_profileDetailsLite}>{`${feedData.firstName} ${feedData.lastName}`}</Text>
+					</Text>
+					<Text style={Theme.profile_profileDetails}>
+						Username: <Text style={Theme.profile_profileDetailsLite}>{feedData.username}</Text>
+					</Text>
+					<Text style={Theme.profile_profileDetails}>
+						Age: <Text style={Theme.profile_profileDetailsLite}>{feedData.age}</Text>
+					</Text>
+					<Text style={Theme.profile_profileDetails}>
+						Blood Group: <Text style={Theme.profile_profileDetailsLite}>{feedData.bloodGroup}</Text>
+					</Text>
+					<Text style={Theme.profile_profileDetails}>
+						Allergies: <Text style={Theme.profile_profileDetailsLite}>{feedData.allergies}</Text>
+					</Text>
+				</View>
+		  </View>
+
+		);
+	}
 };

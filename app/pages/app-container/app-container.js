@@ -4,8 +4,8 @@
 import React from 'react-native';
 import Theme from '../../components/theme/theme';
 
-import HomeFeed from '../../feeds/homeFeed';
-import DiaryFeed from '../../feeds/diaryFeed';
+import HomeFeed from '../../feeds/home-feed';
+import DiaryFeed from '../../feeds/diary-feed';
 import Profile from '../profile/profile';
 import authService from '../../helpers/AuthService';
 import userService from '../../helpers/UserService';

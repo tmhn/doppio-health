@@ -12,6 +12,43 @@ let {
   View,
 } = React;
 
+let diaryItems = {
+    "diaryFeed": [
+        {
+            "title": "Apple",
+            "bio": "Pink Lady",
+            "ref": "fruit",
+            "timeStamp": "yesterday",
+            "bundle": "record",
+            "component": "Fruit"
+        },
+        {
+            "title": "Banana",
+            "bio": "Candy Banana",
+            "ref": "fruit",
+            "timeStamp": "yesterday",
+            "bundle": "record",
+            "component": "Fruit"
+        },
+        {
+            "title": "Apple",
+            "bio": "Pink Lady TODAY",
+            "ref": "fruit",
+            "timeStamp": "today",
+            "bundle": "record",
+            "component": "Fruit"
+        },
+        {
+            "title": "Banana",
+            "bio": "Candy Banana TODAY",
+            "ref": "fruit",
+            "timeStamp": "today",
+            "bundle": "record",
+            "component": "Fruit"
+        }
+    ]
+};
+
 module.exports = class DiaryFeed extends Component{
   constructor(props){
     super(props);
@@ -30,10 +67,10 @@ module.exports = class DiaryFeed extends Component{
   }
 
   fetchFeed(){
-    let feedItems = Data;
+    let feedItems = diaryItems;
 
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems.apps[0].cats[0]),
+      dataSource: this.state.dataSource.cloneWithRows(feedItems.diaryFeed),
     });
   }
 
@@ -46,10 +83,10 @@ module.exports = class DiaryFeed extends Component{
       <View style={Theme.diary_row}>
         <View style={Theme.diary_rowText}>
           <Text style={Theme.diary_rowTitle}>
-            {rowData.name}
+            {rowData.title}
           </Text>
           <Text style={Theme.diary_rowBio}>
-            {rowData.name}
+            {rowData.bio}
           </Text>
         </View>
       </View>
@@ -58,7 +95,7 @@ module.exports = class DiaryFeed extends Component{
 
   render() {
     return (
-      <View style={Theme.diaryContainer}>
+      <View style={Theme.diary_container}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)} />

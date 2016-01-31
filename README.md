@@ -29,13 +29,14 @@ The healthcare professional generates the _Micro-App_ from the DoppioHealth webs
 The options for _Bundles_ are Diet, Recorder, Tips and Guidance
 
 
-##Principles
-
-* DoppioHealth consumes a Theme file that is a collection of all styles, keeping components lightweight
-
 ##Coding Style
 
 Coding style for DoppioHealth has been inspired by [Airbnb's React Style Guide](https://github.com/airbnb/javascript/tree/master/react) and [Team Oauth](https://github.com/team-oath/uncovery/wiki/React-Native-Style-Guide)
+
+####Principles
+
+* DoppioHealth consumes a Theme file that is a collection of all styles, keeping components lightweight
+
 
 ##Further Work
 _\( not to be confused with [ToDos](https://github.com/tmhn/doppio-health/blob/master/todo.md) \)_

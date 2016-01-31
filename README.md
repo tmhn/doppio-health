@@ -35,7 +35,7 @@ The options for _Bundles_ are Diet, Recorder, Tips and Guidance
 
 ##Coding Style
 
-Coding style for DoppioHealth has been inspired by [Airbnb's React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
+Coding style for DoppioHealth has been inspired by [Airbnb's React Style Guide](https://github.com/airbnb/javascript/tree/master/react) and [Team Oauth](https://github.com/team-oath/uncovery/wiki/React-Native-Style-Guide)
 
 ##Further Work
 _\( not to be confused with [ToDos](https://github.com/tmhn/doppio-health/blob/master/todo.md) \)_

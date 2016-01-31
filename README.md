@@ -33,8 +33,14 @@ The options for _Bundles_ are Diet, Recorder, Tips and Guidance
 
 * DoppioHealth consumes a Theme file that is a collection of all styles, keeping components lightweight
 
+##Coding Style
+
+Coding style for DoppioHealth has been inspired by [Airbnb's React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
+
 ##Further Work
 _\( not to be confused with [ToDos](https://github.com/tmhn/doppio-health/blob/master/todo.md) \)_
 
 * Integrate with an auto-updater library to allow users to recieve specific updates
 * Danger Levels - If you have taken a medicine, then an alert will show if you are close to the recommended dosage
+
+

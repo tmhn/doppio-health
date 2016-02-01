@@ -61,15 +61,15 @@ module.exports = class Login extends Component{
 	  	}
 
     return (
-		<View style={ComponentsApi.getHeaderStyle()}>
+		<View style={Theme.mainContainer}>
 
 			<Image
 				source={require('../../components/icons/logo_white.png')}
-				style={{width: 265, height: 40, alignSelf: 'center', marginBottom: 25}} />
+				style={{width: 260, height: 37, alignSelf: 'center', marginBottom: 25}} />
 			<TextInput
 				onChangeText={(text)=> this.setState({username: text})}
-			style={Theme.searchInput}
-			placeholder="Username" />
+				style={Theme.searchInput}
+				placeholder="Username" />
 
 			<TextInput
 				onChangeText={(text)=> this.setState({password: text})}

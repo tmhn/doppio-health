@@ -313,9 +313,9 @@ module.exports = {
   	},
 	mainContainer: {
 		flex: 1,
-		padding: 30,
+		padding: 25,
 		//marginTop: 65,
-		paddingBottom: 75,
+		paddingBottom: 95,
 		flexDirection: 'column',
 		justifyContent: 'center',
 		backgroundColor: '#498EE0',

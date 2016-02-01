@@ -11,6 +11,10 @@ var DBEvents = require('react-native-db-models').DBEvents
 
 class AuthService{
 
+	initialLogin(creds, cb){
+
+	}
+
 	login(creds, cb){
 		DB.users.get({username: creds.username, password: creds.password}, 
 			function(results){

@@ -1,8 +1,11 @@
 /* @flow */
+/* 
+	Data is passed from parent through 'props' and is assigned to feedItems
+*/
 'use strict';
 
 import React from 'react-native';
-import Theme from '../../../components/theme/theme';
+import Theme from '../../components/theme/theme';
 
 let {
 	Component,
@@ -56,7 +59,7 @@ module.exports = class Reminder extends Component{
 
 		          <View style={Theme.reminder_timesSection}>
 		          	<Image
-		          		source={require('../../../components/icons/clock_red.png')}
+		          		source={require('../../components/icons/clock_red.png')}
 		          		style={Theme.reminder_timesIcon} />
 		          		<View style={Theme.reminder_timesTextRow}>
 			          		<Text style={Theme.reminder_timesText}>{rowData.frequencyText1}</Text>

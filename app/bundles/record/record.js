@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react-native';
-import Theme from '../../../components/theme/theme';
+import Theme from '../../components/theme/theme';
 
 let {
   Component,

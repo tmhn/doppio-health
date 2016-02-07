@@ -1,9 +1,13 @@
 /* @flow */
+/* 
+	Data is passed from parent through 'props' and is assigned to feedItems
+*/
+
 'use strict';
 
 import React from 'react-native';
-import Theme from '../../../components/theme/theme';
-import CompApi from '../../../api/components-api';
+import Theme from '../../components/theme/theme';
+import CompApi from '../../api/components-api';
 
 let {
 	Component,

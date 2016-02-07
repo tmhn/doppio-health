@@ -5,9 +5,9 @@ import React from 'react-native';
 import Theme from '../components/theme/theme';
 
 let componentsRegistry = {
-  diet: require('../bundles/components/diet/diet-container'),
-  record: require('../bundles/components/record/record-container'),
-  reminder: require('../bundles/components/reminder/reminder-container')
+  diet: require('../bundles/diet/diet-container'),
+  record: require('../bundles/record/record-container'),
+  reminder: require('../bundles/reminder/reminder-container')
 };
 
 let {

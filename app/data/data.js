@@ -5,7 +5,7 @@ module.exports = {
 		"firstName": "Tom",
 		"lastName": "Hanson",
 		"age": 21,
-		"bloodGroup": 'O+',
+		"bloodGroup": "O+",
 		"allergies": "Penicillin",
 		"homeBio": "Welcome to DoppioHealth iOS"
 	},
@@ -71,7 +71,7 @@ module.exports = {
 			"name": "Fluclox",
 			"bio": "Not too many now",
 			"count": 5,
-			"frequencyText1": "11:30AM - 12PM",
+			"frequencyText1": "11:30AM - 12PM"
 		}],
 		"bio": "Winter Pill counter"
 	}]

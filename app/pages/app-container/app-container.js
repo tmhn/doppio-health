@@ -123,7 +123,7 @@ module.exports = class AppContainer extends Component{
                     },
                     {
                       text: 'Cancel',
-                      onPress: () =>console.log('Logout cancelled'),
+                      onPress: () =>console.log('Logout cancelled.'),
                     },
                   ]
                 );

@@ -37,6 +37,12 @@ var Main = React.createClass({
  			}
  		});
 
+//UserLogin hack
+
+ 		//DB.users.add({username: "Tom", password: "tom"}, function(added_data){
+    	//	console.log(added_data); 
+		//});
+//--------------
  	},
 
 	getInitialState(){

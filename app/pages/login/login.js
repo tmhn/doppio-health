@@ -4,7 +4,7 @@
 import React from 'react-native';
 import ComponentsApi from '../../api/components-api';
 import authService from '../../helpers/AuthService';
-import Theme from '../../components/theme/theme';
+import Theme from '../../assets/theme/theme';
 
 let {
 	ActivityIndicatorIOS,
@@ -64,7 +64,7 @@ module.exports = class Login extends Component{
 		<View style={Theme.mainContainer}>
 
 			<Image
-				source={require('../../components/icons/logo_white.png')}
+				source={require('../../assets/icons/logo_white.png')}
 				style={{width: 260, height: 37, alignSelf: 'center', marginBottom: 25}} />
 			<TextInput
 				onChangeText={(text)=> this.setState({username: text})}

@@ -3,7 +3,7 @@
 'use strict';
 
 import React from 'react-native';
-import Theme from '../../components/theme/theme';
+import Theme from '../../assets/theme/theme';
 
 let {
   Component,
@@ -30,7 +30,7 @@ module.exports = class Profile extends Component{
 		  <View style={Theme.profileContainer}>
 		  	<View style={Theme.profile_imageRow}>
 		  		<Image
-		  			source={require('../../components/icons/personProfile.png')}
+		  			source={require('../../assets/icons/personProfile.png')}
 		  			style={Theme.profile_profileImage} />
 				<View style={Theme.profile_textRow}>
 					<Text style={Theme.profile_profileName}>{feedData.firstName}</Text>

@@ -6,7 +6,7 @@
 'use strict';
 
 import React from 'react-native';
-import Theme from '../../components/theme/theme';
+import Theme from '../../assets/theme/theme';
 import CompApi from '../../api/components-api';
 
 let {

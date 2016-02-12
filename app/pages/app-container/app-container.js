@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react-native';
-import Theme from '../../components/theme/theme';
+import Theme from '../../assets/theme/theme';
 
 import HomeFeed from '../../feeds/home-feed';
 import DiaryFeed from '../../feeds/diary-feed';
@@ -60,7 +60,7 @@ module.exports = class AppContainer extends Component{
       <TabBarIOS style={Theme.appContainer}>
         <TabBarIOS.Item
           title="Home"
-          icon={require('../../components/icons/home.png')}
+          icon={require('../../assets/icons/home.png')}
           selected={this.state.selectedTab == "home"}
           onPress={()=> this.setState({selectedTab: 'home'})} >
 
@@ -79,7 +79,7 @@ module.exports = class AppContainer extends Component{
 
         <TabBarIOS.Item
           title="Diary"
-          icon={require('../../components/icons/bookmark.png')}
+          icon={require('../../assets/icons/bookmark.png')}
           barTintColor='#498EE0'
           selected={this.state.selectedTab == "diary"}
           onPress={()=> this.setState({selectedTab: 'diary'})} >
@@ -97,7 +97,7 @@ module.exports = class AppContainer extends Component{
 
         <TabBarIOS.Item
           title="Profile"
-          icon={require('../../components/icons/person.png')}
+          icon={require('../../assets/icons/person.png')}
           selected={this.state.selectedTab == "profile"}
           onPress={()=> this.setState({selectedTab: 'profile'})} >
 
@@ -111,7 +111,7 @@ module.exports = class AppContainer extends Component{
               title: 'Profile',
               component: Profile,
               passProps: {data: UserData},
-              rightButtonIcon: require('../../components/icons/settings.png'),
+              rightButtonIcon: require('../../assets/icons/settings.png'),
               onRightButtonPress: () => {
                 AlertIOS.alert(
                   'Logout',

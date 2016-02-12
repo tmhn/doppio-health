@@ -7,7 +7,7 @@
  import Login from '../login/login';
 
  import userService from '../../helpers/UserService';
- import Theme from '../../components/theme/theme';
+ import Theme from '../../assets/theme/theme';
 
 import DB from '../../data/db';
 import DBEvents from 'react-native-db-models';

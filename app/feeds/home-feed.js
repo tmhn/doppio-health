@@ -2,7 +2,7 @@
 'use strict';
 
 import React from 'react-native';
-import Theme from '../components/theme/theme';
+import Theme from '../assets/theme/theme';
 
 let componentsRegistry = {
   diet: require('../bundles/diet/diet-container'),
@@ -42,7 +42,7 @@ module.exports = class HomeFeed extends Component{
     let feedItems = this.props.data;
 
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems.apps),
+      dataSource: this.state.dataSource.cloneWithRows(feedItems.sandboxes),
     });
   }
 

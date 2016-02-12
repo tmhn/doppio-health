@@ -9,11 +9,11 @@ module.exports = {
 		"allergies": "Penicillin",
 		"homeBio": "Welcome to DoppioHealth iOS"
 	},
-	"apps": [{
+	"sandboxes": [{
 		"ref": "fruit",
 		"title": "Fruit",
 		"bundle": "record",
-		"component": "Fruit",
+		"bio": "Not nearly enough mangoes",
 		"cats": [{
 			"name": "Apple",
 			"bio": "Pink Lady",
@@ -24,14 +24,12 @@ module.exports = {
 			"bio": "Candy banana",
 			"count": 5,
 			"frequencyText1": "4x daily"
-		}],
-		"bio": "Not nearly enough mangoes"
+		}]
 
 	}, {
 		"ref": "smoking",
 		"title": "Smoking",
 		"bundle": "record",
-		"component": "Smoking",
 		"cats": [{
 			"name": "Cigarette",
 			"bio": "Marlboro",
@@ -48,7 +46,6 @@ module.exports = {
 		"ref": "pills",
 		"title": "Pills",
 		"bundle": "reminder",
-		"component": "Pills",
 		"cats": [{
 			"name": "Paracetamol",
 			"bio": "Hospital strength",

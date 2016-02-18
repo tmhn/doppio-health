@@ -11,6 +11,7 @@
     "promise-es6": "^0.1.0",
     "react-native": "^0.19.0",
     "react-native-db-models": "^0.1.2",
-    "react-native-scrollable-tab-view": "^0.3.4"
+    "react-native-scrollable-tab-view": "^0.3.4",
+    "reflux": "^0.3.0"
   }
 }

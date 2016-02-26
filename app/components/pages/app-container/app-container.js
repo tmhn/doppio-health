@@ -50,7 +50,7 @@ module.exports = class AppContainer extends Component{
 
   navbarLogout(){
     console.log('user logged in on logout press');
-    userService.deleteUserSessionRows();
+    userService.deleteUserSession();
   }
 
   render() {

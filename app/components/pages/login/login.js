@@ -57,44 +57,6 @@ module.exports = class Login extends Component{
 		 	}
 		})		
 
-
-
-		// authService.apiLogin({
-		// 	userId: tempUser
-		// }, (results) => {
-		// 		console.log("entered api login function");
-		// 		console.log(results);
-		// });
-
-		// console.log(`Attempting to log in with username: ${this.state.username}`);
-		// this.setState({showProgress: true});
-
-		// authService.login({
-		// 	username: this.state.username,
-		// 	password: this.state.password
-		// }, (results)=> {
-		// 	this.setState(Object.assign({
-		// 		showProgress: false
-		// 		}, results));
-
-		// 		if(results.userAuthSuccess c){
-		// 			this.props.onLogin();
-		// 		}
-		// });
-
-	}
-
-	loadSandbox(){
-
-		console.log("loadSandboxes - loggedUser");
-		console.log(this.state.loggedUser);
-
-		// authService.loadSandbox({
-		// 	userId: tempUserId
-		// }, (results) => {
-		// 		console.log("--------- RESULTS FROM DB AND DOPPIO---------");
-		// 		console.log(results);
-		// }) 
 	}
 
   	render() {

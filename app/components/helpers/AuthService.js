@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 var DB = require('../data/db.js');
 var DBEvents = require('react-native-db-models').DBEvents
+var userService = require('../helpers/UserService');
 
 
 class AuthService{
@@ -31,13 +32,13 @@ class AuthService{
 				console.log(`>> UserDB response successful for ${creds.userPass}! Success results returned!`);
 
 				//DBModels set user
+				userService.createUserSession(jsonResultBody);
 
 				return cb({	
  					success: true,
 				});
 			}
 
-			//return cb(jsonResultBody)
 		});
 	}
 

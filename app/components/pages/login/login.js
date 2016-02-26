@@ -8,6 +8,7 @@ import Theme from '../../assets/theme/theme';
 
 let {
 	ActivityIndicatorIOS,
+	AlertIOS,
 	Component,
 	Image,
   	StyleSheet,
@@ -44,6 +45,15 @@ module.exports = class Login extends Component{
 
 		 	if(results.success && this.props.onLogin){
 		 		this.props.onLogin();
+		 	} else {
+		 		AlertIOS.alert(
+		 			'Error',
+		 			'Username and Password Incorrect',
+		 			[{
+                      text: 'Cancel',
+                      onPress: () =>console.log('Incorrect U/P alert cancelled.'),
+                    },]
+                );
 		 	}
 		})		
 

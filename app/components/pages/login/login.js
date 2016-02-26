@@ -22,29 +22,70 @@ module.exports = class Login extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			showProgress: false
+			showProgress: false,
+			loggedUser: "temp"
 		}
 	}
 
 	onLoginPressed() {
-		console.log(`Attempting to log in with username: ${this.state.username}`);
 		this.setState({showProgress: true});
+		let temp = `${this.state.username}${this.state.password}`;
+		let userPass = temp.toLowerCase();
+		let dbResults;
+		let tempUserId;
+		let stringUserId;
 
-		authService.login({
-			username: this.state.username,
-			password: this.state.password
-		}, (results)=> {
-			this.setState(Object.assign({
-				showProgress: false
-				}, results));
+		authService.userLogin({
+			userPass: userPass
+		}, (results) => {
+		 	this.setState(Object.assign({
+		 		showProgress: false
+		 		}, results));
 
-				if(results.userAuthSuccess && this.props.onLogin){
-					this.props.onLogin();
-				}
-			});
-		
-		};
+		 	if(results.success && this.props.onLogin){
+		 		this.props.onLogin();
+		 	}
+		})		
 
+
+
+		// authService.apiLogin({
+		// 	userId: tempUser
+		// }, (results) => {
+		// 		console.log("entered api login function");
+		// 		console.log(results);
+		// });
+
+		// console.log(`Attempting to log in with username: ${this.state.username}`);
+		// this.setState({showProgress: true});
+
+		// authService.login({
+		// 	username: this.state.username,
+		// 	password: this.state.password
+		// }, (results)=> {
+		// 	this.setState(Object.assign({
+		// 		showProgress: false
+		// 		}, results));
+
+		// 		if(results.userAuthSuccess c){
+		// 			this.props.onLogin();
+		// 		}
+		// });
+
+	}
+
+	loadSandbox(){
+
+		console.log("loadSandboxes - loggedUser");
+		console.log(this.state.loggedUser);
+
+		// authService.loadSandbox({
+		// 	userId: tempUserId
+		// }, (results) => {
+		// 		console.log("--------- RESULTS FROM DB AND DOPPIO---------");
+		// 		console.log(results);
+		// }) 
+	}
 
   	render() {
 
@@ -72,6 +113,7 @@ module.exports = class Login extends Component{
 				placeholder="Username" />
 
 			<TextInput
+				autoCapitalize="none"
 				onChangeText={(text)=> this.setState({password: text})}
 				style={Theme.searchInput}
 				placeholder="Password"

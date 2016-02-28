@@ -35,15 +35,27 @@ class UserService{
 		});
 	}
 
-	getUserSession(cb){
 
-		DB.user_session.get_all(function(result){
+	// Clean function to allow successful login
+	getUserSession(cb){
+			DB.user_session.get_all(function(result){
 			var getAllResults = result;
 			console.log(`User Session Row Count: ${getAllResults.totalrows}`);
-			console.log(`User Session Row Count: ${getAllResults.username}`);
 			cb(getAllResults.totalrows);
 		});
 	}
+
+	// Modified getUserSessionAuth function
+	getUserSessionData(cb){
+
+		DB.user_session.get_all(function(result){
+			var getAllResults = result;
+			//console.log(`User Session Row Count: ${getAllResults.totalrows}`);
+			console.log(`>> User Session Object: ${JSON.stringify(getAllResults)}`);
+			cb(getAllResults.totalrows);
+		});
+	}
+
 }
 
 module.exports = new UserService;

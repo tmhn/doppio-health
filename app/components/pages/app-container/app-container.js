@@ -43,8 +43,9 @@ module.exports = class AppContainer extends Component{
   }
 
   fetchData(){
-    DB.users.get_all(function(result){
-        console.log('User table count: '+ result.totalrows);
+    userService.getUserSessionData(function(result){
+      console.log(`app container  -  `)
+      console.log(result)
     })
   }
 

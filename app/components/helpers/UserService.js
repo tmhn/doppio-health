@@ -47,12 +47,35 @@ class UserService{
 
 	// Modified getUserSessionAuth function
 	getUserSessionData(cb){
+		let tempUser;
+		let str;
+		let jsonStr;
+		let tempjson;
 
 		DB.user_session.get_all(function(result){
 			var getAllResults = result;
-			//console.log(`User Session Row Count: ${getAllResults.totalrows}`);
-			console.log(`>> User Session Object: ${JSON.stringify(getAllResults)}`);
-			cb(getAllResults.totalrows);
+			console.log(`getAllResults`);
+			console.log(getAllResults);
+
+
+			tempUser = JSON.stringify(getAllResults);
+			console.log(`tempuser`);
+			console.log(tempUser);
+
+			str = tempUser.slice(42, (tempUser.length)-3);
+			console.log(`str`);
+			console.log(str);
+
+			jsonStr = `{${str}}`;
+			console.log(`jsonStr`);
+			console.log(jsonStr);
+
+
+			tempjson = JSON.parse(jsonStr)
+
+
+			console.log(`>> User Service Session Object: ${JSON.stringify(tempjson)}`);
+			cb(tempjson);
 		});
 	}
 

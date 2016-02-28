@@ -18,7 +18,7 @@ let {
   	View,
 } = React;
 
-module.exports = class Login extends Component{
+class Login extends Component{
 
 	constructor(props){
 		super(props);
@@ -111,6 +111,6 @@ module.exports = class Login extends Component{
 };
 
 
-
+module.exports = Login;
 
 

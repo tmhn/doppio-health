@@ -25,12 +25,12 @@ let {
   View,
 } = React;
 
-module.exports = class AppContainer extends Component{
+class AppContainer extends Component{
   constructor(props){
     super(props);
 
     this.state = {
-      selectedTab: 'home'
+      selectedTab: 'home',
     }
   }
 
@@ -39,23 +39,32 @@ module.exports = class AppContainer extends Component{
 
     this.setState({
       loggedIn: true,
+      user: ''
     });
   }
 
   fetchData(){
-    userService.getUserSessionData(function(result){
+
+    userService.getUserSessionData((result) => {
       console.log(`app container  -  `)
-      console.log(result)
-    })
+      console.log(result.username);
+
+      this.setState({
+        user: JSON.stringify(result),
+      });
+
+    });
   }
 
   navbarLogout(){
-    console.log('user logged in on logout press');
+    console.log('>> User Logout Clicked');
     userService.deleteUserSession();
   }
 
   render() {
     StatusBarIOS.setStyle("light-content")
+
+    let currentUser = this.state.user;
 
     return (
       <TabBarIOS style={Theme.appContainer}>
@@ -103,7 +112,7 @@ module.exports = class AppContainer extends Component{
           onPress={()=> this.setState({selectedTab: 'profile'})} >
 
           <NavigatorIOS
-          ref="nav"
+            ref="nav"
             style={{flex: 1}}
             barTintColor='#498EE0'
             tintColor='#FFF'
@@ -111,7 +120,7 @@ module.exports = class AppContainer extends Component{
             initialRoute={{
               title: 'Profile',
               component: Profile,
-              passProps: {data: UserData},
+              passProps: {data: currentUser},
               rightButtonIcon: require('../../assets/icons/settings.png'),
               onRightButtonPress: () => {
                 AlertIOS.alert(
@@ -124,7 +133,7 @@ module.exports = class AppContainer extends Component{
                     },
                     {
                       text: 'Cancel',
-                      onPress: () =>console.log('Logout cancelled.'),
+                      onPress: () => console.log('Logout cancelled.'),
                     },
                   ]
                 );
@@ -136,4 +145,6 @@ module.exports = class AppContainer extends Component{
     );
   }
 };
+
+module.exports = AppContainer;
 

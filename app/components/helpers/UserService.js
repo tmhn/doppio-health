@@ -57,24 +57,14 @@ class UserService{
 			console.log(`getAllResults`);
 			console.log(getAllResults);
 
-
 			tempUser = JSON.stringify(getAllResults);
-			console.log(`tempuser`);
-			console.log(tempUser);
-
 			str = tempUser.slice(42, (tempUser.length)-3);
-			console.log(`str`);
-			console.log(str);
 
 			jsonStr = `{${str}}`;
 			console.log(`jsonStr`);
 			console.log(jsonStr);
-
-
+			
 			tempjson = JSON.parse(jsonStr)
-
-
-			console.log(`>> User Service Session Object: ${JSON.stringify(tempjson)}`);
 			cb(tempjson);
 		});
 	}

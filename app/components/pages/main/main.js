@@ -80,7 +80,7 @@ var Main = React.createClass({
 			return(
 				<AppContainer/>
 			);
-		}else{
+		} else {
 			return(
 				<Login onLogin={this.onLogin} />
 			);

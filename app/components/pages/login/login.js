@@ -40,11 +40,13 @@ module.exports = class Login extends Component{
 			userPass: userPass
 		}, (results) => {
 		 	this.setState(Object.assign({
-		 		showProgress: false
+		 		showProgress: false,
+		 		currentUser: results.user
 		 		}, results));
+		 	let currentUser = this.state.currentUser;
 
 		 	if(results.success && this.props.onLogin){
-		 		this.props.onLogin();
+		 		this.props.onLogin(currentUser);
 		 	} else {
 		 		AlertIOS.alert(
 		 			'Error',

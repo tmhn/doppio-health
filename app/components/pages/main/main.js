@@ -52,13 +52,18 @@ var Main = React.createClass({
 		}
 	},
 
-	onLogin(){
+	onLogin(currentUser){
 		this.setState({
 			isLoggedIn: true,
+			user: currentUser
 		});
+
+		console.log(`>> DB - Main.js Logged in user ${this.state.user}`);
 	},
 
 	render(){
+		let currentUser = this.state.user;
+
 		if(this.state.checkingAuth){
 			return(
 				<View style={Theme.mainContainer}>

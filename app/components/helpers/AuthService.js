@@ -26,16 +26,18 @@ class AuthService{
 				console.log(`>> UserDB response null for ${creds.userPass}. Error results returned.`);
 				return cb({
  					success: false,
+ 					user: ''
 				});
 
 			} else {
 				console.log(`>> UserDB response successful for ${creds.userPass}! Success results returned!`);
 
-				//DBModels set user
+				// DBModels set user
 				userService.createUserSession(jsonResultBody);
 
 				return cb({	
  					success: true,
+ 					user: jsonResultBody
 				});
 			}
 

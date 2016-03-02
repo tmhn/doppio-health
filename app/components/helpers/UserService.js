@@ -8,9 +8,10 @@ class UserService{
 
 	createUserSession(creds){
 		let user = JSON.parse(creds)
-
+		console.log(`>> UserService: Create User Session`)
 
 		DB.user_session.add({
+			userId: user._id,
 			username: user.username,
 			password: user.password,
 			userPass: user.userPass,
@@ -39,6 +40,7 @@ class UserService{
 	// Clean function to allow successful login
 	getUserSession(cb){
 			DB.user_session.get_all(function(result){
+			
 			var getAllResults = result;
 			console.log(`User Session Row Count: ${getAllResults.totalrows}`);
 			cb(getAllResults.totalrows);
@@ -47,24 +49,27 @@ class UserService{
 
 	// Modified getUserSessionAuth function
 	getUserSessionData(cb){
-		let tempUser;
-		let str;
-		let jsonStr;
-		let tempjson;
 
 		DB.user_session.get_all(function(result){
+			console.log(`>> UserService: get_all result ${JSON.stringify(result)}`)
 			var getAllResults = result;
-			console.log(`getAllResults`);
-			console.log(getAllResults);
 
-			tempUser = JSON.stringify(getAllResults);
-			str = tempUser.slice(42, (tempUser.length)-3);
+			let tempUser = JSON.stringify(getAllResults);
+			let str = tempUser.slice(42, (tempUser.length)-3);
 
-			jsonStr = `{${str}}`;
+			console.log(`>> UserService: JSON PARSED STR`)
+			console.log(str);
+
+			let jsonStr = `{${str}}`;
+
 			console.log(`jsonStr`);
 			console.log(jsonStr);
 			
-			tempjson = JSON.parse(jsonStr)
+			let tempjson = JSON.parse(jsonStr)
+
+			console.log(`>> UserService: Clean User Details: `)
+			console.log(tempjson)
+			
 			cb(tempjson);
 		});
 	}

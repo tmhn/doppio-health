@@ -8,7 +8,7 @@ import HomeFeed from '../../feeds/home-feed';
 import DiaryFeed from '../../feeds/diary-feed';
 import Profile from '../profile/profile';
 import authService from '../../helpers/AuthService';
-import userService from '../../helpers/UserService';
+import UserService from '../../helpers/UserService';
 
 import DB from '../../data/db';
 import UserData from '../../data/data';
@@ -36,21 +36,23 @@ class AppContainer extends Component{
 
   componentDidMount(){
     this.fetchData();
+    // this.setState({
+    //   loggedIn: true,
+    //   //user: ''
+    // });
 
-    this.setState({
-      loggedIn: true,
-      user: ''
-    });
+    
   }
 
   fetchData(){
 
-    userService.getUserSessionData((result) => {
+    UserService.getUserSessionData((result) => {
       console.log(`app container  -  `)
-      console.log(result.username);
+      console.log(result.username)
 
       this.setState({
         user: JSON.stringify(result),
+        loggedIn: true,
       });
 
     });
@@ -58,7 +60,7 @@ class AppContainer extends Component{
 
   navbarLogout(){
     console.log('>> User Logout Clicked');
-    userService.deleteUserSession();
+    UserService.deleteUserSession();
   }
 
   render() {

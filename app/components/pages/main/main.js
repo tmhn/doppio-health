@@ -53,12 +53,30 @@ var Main = React.createClass({
 	},
 
 	onLogin(currentUser){
-		this.setState({
-			isLoggedIn: true,
-			user: currentUser
+		let current = JSON.parse(currentUser)
+		
+		DB.user_session.add({
+			userId: current._id,
+			username: current.username,
+			password: current.password,
+			userPass: current.userPass,
+			first_name: current.first_name,
+			last_name: current.last_name,
+			age: current.age,
+			bloodGroup: current.bloodGroup,
+			homeBio: current.homeBio,
+
+
+		}, function(added_data){
+			this.setState({
+			  user: added_data,
+			});
 		});
 
-		console.log(`>> DB - Main.js Logged in user ${this.state.user}`);
+		this.setState({
+			isLoggedIn: true
+		});
+		
 	},
 
 	render(){

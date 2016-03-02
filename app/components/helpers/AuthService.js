@@ -33,7 +33,7 @@ class AuthService{
 				console.log(`>> UserDB response successful for ${creds.userPass}! Success results returned!`);
 
 				// DBModels set user
-				userService.createUserSession(jsonResultBody);
+				// userService.createUserSession(jsonResultBody);
 
 				return cb({	
  					success: true,

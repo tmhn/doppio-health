@@ -5,6 +5,8 @@
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 
+import UserService from '../../helpers/UserService';
+
 let {
   Component,
   Image,
@@ -17,17 +19,38 @@ class Profile extends Component{
 	constructor(props){
 		super(props);
 
-		this.state = {
-			currentUser : this.props.data
-		}
+		 this.state = {
+		 	currentUser : this.props.data
+		 }
 	}
 
 	componentDidMount(){
-		//this.fetchData();
+		this.fetchData();
 	}
 
 	fetchData(){
+		UserService.getUserSessionData((result) => {
+			console.log(`>> ProfilePage - DB Results`)
+			
+			let firstName = result.first_name;
+			let lastName = result.last_name;
+			let username = result.username;
+			let userPass = result.userPass;
+			let age = result.age;
+			let bloodGroup = result.bloodGroup;
+			let allergies = result.allergies;
 
+
+			this.setState({
+			  FirstName: firstName,
+			  LastName: lastName,
+			  Username: username,
+			  UserPass: userPass,
+			  Age: age,
+			  BloodGroup: bloodGroup,
+			  Allergies: allergies
+			});
+		})
 	}
 
 	render(){
@@ -42,25 +65,25 @@ class Profile extends Component{
 		  			source={require('../../assets/icons/personProfile.png')}
 		  			style={Theme.profile_profileImage} />
 				<View style={Theme.profile_textRow}>
-					<Text style={Theme.profile_profileName}>{user.first_name}</Text>
-					<Text style={Theme.profile_profileName}>{user.last_name}</Text>
+					<Text style={Theme.profile_profileName}>{this.state.FirstName}</Text>
+					<Text style={Theme.profile_profileName}>{this.state.LastName}</Text>
 				</View>
 			</View>
 			<View style={Theme.profile_detailsText}>
 					<Text style={Theme.profile_profileDetails}>
-						Name: <Text style={Theme.profile_profileDetailsLite}>{`${user.first_name} ${user.last_name}`}</Text>
+						Name: <Text style={Theme.profile_profileDetailsLite}>{`${this.state.FirstName} ${this.state.LastName}`}</Text>
 					</Text>
 					<Text style={Theme.profile_profileDetails}>
-						Username: <Text style={Theme.profile_profileDetailsLite}>{user.username}</Text>
+						Username: <Text style={Theme.profile_profileDetailsLite}>{this.state.Username}</Text>
 					</Text>
 					<Text style={Theme.profile_profileDetails}>
-						Age: <Text style={Theme.profile_profileDetailsLite}>{user.age}</Text>
+						Age: <Text style={Theme.profile_profileDetailsLite}>{this.state.Age}</Text>
 					</Text>
 					<Text style={Theme.profile_profileDetails}>
-						Blood Group: <Text style={Theme.profile_profileDetailsLite}>{user.bloodGroup}</Text>
+						Blood Group: <Text style={Theme.profile_profileDetailsLite}>{this.state.BloodGroup}</Text>
 					</Text>
 					<Text style={Theme.profile_profileDetails}>
-						Allergies: <Text style={Theme.profile_profileDetailsLite}>{user.allergies}</Text>
+						Allergies: <Text style={Theme.profile_profileDetailsLite}>{this.state.Allergies}</Text>
 					</Text>
 				</View>
 		  </View>

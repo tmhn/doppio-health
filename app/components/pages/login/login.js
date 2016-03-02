@@ -45,8 +45,12 @@ class Login extends Component{
 		 		}, results));
 		 	let currentUser = this.state.currentUser;
 
+		 	console.log(`>> LoginJS: CurrentUser: ${currentUser}`)
+
 		 	if(results.success && this.props.onLogin){
-		 		this.props.onLogin(currentUser);
+
+				this.props.onLogin(currentUser);
+
 		 	} else {
 		 		AlertIOS.alert(
 		 			'Error',

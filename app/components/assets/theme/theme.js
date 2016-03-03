@@ -237,6 +237,39 @@ module.exports = {
 // 	App-Container
 	// inline styles used
 
+//	Intro
+	introContainer: {
+		flex: 1,
+		padding: 25,
+		//marginTop: 65,
+		paddingBottom: 95,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		backgroundColor: '#ff5a5f',
+		paddingTop: 95
+	},
+	introHeader: {
+		marginBottom: 15,
+		fontSize: 25,
+		textAlign: 'center',
+		color: '#FFF',
+		fontFamily: 'Avenir',
+		paddingTop: 20
+	},
+	introText: {
+		marginBottom: 20,
+		fontSize: 13,
+		color: '#FFF',
+		fontFamily: 'Avenir',
+		paddingLeft: 25
+	},
+	introSubheading: {
+		color: '#FFF',
+		fontFamily: 'Avenir',
+		fontSize: 25,
+		paddingTop: 5,
+		paddingLeft: 25
+	},
 // 	Login
 	// inline styles used
 
@@ -320,15 +353,6 @@ module.exports = {
 		flexDirection: 'column',
 		justifyContent: 'center',
 		backgroundColor: '#498EE0',
-	},
-	introContainer: {
-		flex: 1,
-		padding: 25,
-		//marginTop: 65,
-		paddingBottom: 95,
-		flexDirection: 'column',
-		justifyContent: 'center',
-		backgroundColor: '#ff5a5f',
 	},
 	title: {
 		marginBottom: 20,

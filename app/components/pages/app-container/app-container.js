@@ -4,6 +4,7 @@
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 
+import Intro from '../intro/intro';
 import HomeFeed from '../../feeds/home-feed';
 import DiaryFeed from '../../feeds/diary-feed';
 import Profile from '../profile/profile';
@@ -35,27 +36,33 @@ class AppContainer extends Component{
   }
 
   componentDidMount(){
-    this.fetchData();
-    // this.setState({
-    //   loggedIn: true,
-    //   //user: ''
-    // });
 
-    
-  }
+    // UserService.getUserSessionData((result) => {
+    //   console.log(`AppContainer: ${result.userId}`)
+      
+    //   this.setState({
+    //     user: JSON.stringify(result),
+    //     loggedIn: true,
+    //     userId: result.userId
+    //   });
 
-  fetchData(){
+    //   fetch(`http://localhost:8080/api/app/${this.state.userId}`)
+    //     .then((response) => {
+    //       return response._bodyText;
+    //   })
+    //   .then((responseBody) => {
+    //       console.log(`>> AppContainer: Returned Apps from DB: `)
+    //       let userResult = JSON.parse(responseBody)
+    //       let userSandboxes = userResult.sandboxes
+    //       this.setState({
+    //         apps: userSandboxes,
+    //       });
 
-    UserService.getUserSessionData((result) => {
-      console.log(`app container  -  `)
-      console.log(result.username)
+    //   })
+    //   .done();
 
-      this.setState({
-        user: JSON.stringify(result),
-        loggedIn: true,
-      });
+    // });    
 
-    });
   }
 
   navbarLogout(){
@@ -65,8 +72,6 @@ class AppContainer extends Component{
 
   render() {
     StatusBarIOS.setStyle("light-content")
-
-    let currentUser = this.state.user;
 
     return (
       <TabBarIOS style={Theme.appContainer}>
@@ -83,8 +88,24 @@ class AppContainer extends Component{
             titleTextColor='#FFF'
             initialRoute={{
               title: 'Home',
-              component: HomeFeed,
-              passProps: {data: UserData}
+              component: Intro
+            }} />
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item
+          title="Feed"
+          icon={require('../../assets/icons/list.png')}
+          selected={this.state.selectedTab == "feed"}
+          onPress={()=> this.setState({selectedTab: 'feed'})} >
+
+          <NavigatorIOS
+            style={{flex: 1}}
+            barTintColor='#498EE0'
+            tintColor='#FFF'
+            titleTextColor='#FFF'
+            initialRoute={{
+              title: 'Feed',
+              component: HomeFeed
             }} />
         </TabBarIOS.Item>
 
@@ -122,7 +143,6 @@ class AppContainer extends Component{
             initialRoute={{
               title: 'Profile',
               component: Profile,
-              passProps: {data: currentUser},
               rightButtonIcon: require('../../assets/icons/settings.png'),
               onRightButtonPress: () => {
                 AlertIOS.alert(

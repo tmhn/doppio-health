@@ -39,7 +39,7 @@ module.exports = class RecordContainer extends Component{
     //console.log(feedItems.cats.length);
 
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems.cats)
+      dataSource: this.state.dataSource.cloneWithRows(feedItems.apps)
     });
   }
 

@@ -162,6 +162,7 @@ module.exports = {
 		flex: 1,
 		justifyContent: 'flex-start',
     	backgroundColor: '#FFF',
+    	paddingTop: 70
 	},
 	homefeed_row: {
 		flex: 1,
@@ -319,6 +320,15 @@ module.exports = {
 		flexDirection: 'column',
 		justifyContent: 'center',
 		backgroundColor: '#498EE0',
+	},
+	introContainer: {
+		flex: 1,
+		padding: 25,
+		//marginTop: 65,
+		paddingBottom: 95,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		backgroundColor: '#ff5a5f',
 	},
 	title: {
 		marginBottom: 20,

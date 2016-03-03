@@ -24,14 +24,11 @@ class UserService{
 
 		}, function(added_data){
 			let addedUser = JSON.stringify(added_data);
-			
-			console.log(`>> User Session: Added - ${addedUser}`);
 		})
 	}
 
 	deleteUserSession(cb){
 		DB.user_session.erase_db(function(removed_data){
-			console.log(`Deleted data: ${removed_data}`);
 			cb(removed_data);
 		});
 	}
@@ -40,9 +37,7 @@ class UserService{
 	// Clean function to allow successful login
 	getUserSession(cb){
 			DB.user_session.get_all(function(result){
-			
 			var getAllResults = result;
-			console.log(`User Session Row Count: ${getAllResults.totalrows}`);
 			cb(getAllResults.totalrows);
 		});
 	}
@@ -51,24 +46,20 @@ class UserService{
 	getUserSessionData(cb){
 
 		DB.user_session.get_all(function(result){
-			console.log(`>> UserService: get_all result ${JSON.stringify(result)}`)
+			//console.log(`>> UserService: get_all result ${JSON.stringify(result)}`)
 			var getAllResults = result;
 
 			let tempUser = JSON.stringify(getAllResults);
 			let str = tempUser.slice(42, (tempUser.length)-3);
 
-			console.log(`>> UserService: JSON PARSED STR`)
-			console.log(str);
+			//console.log(`>> UserService: JSON PARSED STR`)
+			//console.log(str);
 
 			let jsonStr = `{${str}}`;
-
-			console.log(`jsonStr`);
-			console.log(jsonStr);
-			
 			let tempjson = JSON.parse(jsonStr)
 
-			console.log(`>> UserService: Clean User Details: `)
-			console.log(tempjson)
+			//console.log(`>> UserService: Clean User Details: `)
+			//console.log(tempjson)
 			
 			cb(tempjson);
 		});

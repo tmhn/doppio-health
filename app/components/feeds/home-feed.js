@@ -3,14 +3,16 @@
 
 import React from 'react-native';
 import Theme from '../assets/theme/theme';
+import UserService from '../helpers/UserService';
 
 let componentsRegistry = {
-  diet: require('../bundles/diet/diet-container'),
-  record: require('../bundles/record/record-container'),
-  reminder: require('../bundles/reminder/reminder-container')
+  Diet: require('../bundles/diet/diet-container'),
+  Record: require('../bundles/record/record-container'),
+  Reminder: require('../bundles/reminder/reminder-container')
 };
 
 let {
+  ActivityIndicatorIOS, 
   Component,
   NavigatorIOS,
   ListView,
@@ -21,7 +23,7 @@ let {
 } = React;
 
 
-module.exports = class HomeFeed extends Component{
+class HomeFeed extends Component{
   constructor(props){
     super(props);
 
@@ -31,26 +33,46 @@ module.exports = class HomeFeed extends Component{
 
     this.state = {
       dataSource: ds.cloneWithRows(['A', 'B', 'C']),
+      showProgress: true
     };
   }
 
   componentDidMount(){
-    this.fetchFeed();
+    this.fetchFeed();    
   }
 
   fetchFeed(){
-    let feedItems = this.props.data;
+    UserService.getUserSessionData((result) => {
+      console.log(result)
+      console.log(`HomeFeed: ${result.userId}`)
+      
+      let userId = result.userId
 
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems.sandboxes),
+        fetch(`http://localhost:8080/api/app/${userId}`)
+          .then((response) => {
+            return response._bodyText;
+        })
+        .then((responseBody) => {
+            let userResult = JSON.parse(responseBody)
+            let userSandboxes = userResult.sandboxes
+            
+            console.log(userSandboxes)
+            this.setState({
+              dataSource: this.state.dataSource.cloneWithRows(userSandboxes),
+              showProgress: false
+            });
+
+        })
+        .done();
+
     });
   }
 
   onPress(rowData){
-    let component = componentsRegistry[rowData.bundle];
+    let component = componentsRegistry[rowData.type];
 
     this.props.navigator.push({
-      title: `${rowData.title}`,
+      title: `${rowData.name}`,
       component: component,
       passProps: {
           data: rowData
@@ -60,17 +82,17 @@ module.exports = class HomeFeed extends Component{
   }
 
   renderHeader(){
-    let localUserInfo = this.props.data;
 
     return (
       <View style={Theme.homefeed_header}>
-        <Text style={Theme.homefeed_headerTitle}>Hi {this.props.data.userInfo.firstName}</Text>
-        <Text style={Theme.homefeed_headerText}>{this.props.data.userInfo.homeBio}</Text>
+        <Text style={Theme.homefeed_headerTitle}>Hi!</Text>
+        <Text style={Theme.homefeed_headerText}>Welcome to DoppioHealth</Text>
       </View>
     );
   }
 
   renderRow(rowData){
+
     return(
       <TouchableHighlight
           onPress={()=> this.onPress(rowData)}
@@ -78,10 +100,10 @@ module.exports = class HomeFeed extends Component{
           <View style={Theme.homefeed_row}>
             <View style={Theme.homefeed_rowText}>
               <Text style={Theme.homefeed_rowTitle}>
-                {rowData.title}
+                {rowData.name}
               </Text>
               <Text style={Theme.homefeed_rowBio}>
-                {rowData.bio}
+                {rowData.description}
               </Text>
             </View>
           </View>
@@ -92,14 +114,30 @@ module.exports = class HomeFeed extends Component{
   
 
   render() {
+    // let currentApps = this.state.apps;
+    // console.log(`>> HomeFeed Render - currentApps`)
+    // console.log(currentApps)
+
+    if(this.state.showProgress){
+      return(
+        <View style={{flex: 1, justifyContent: 'center'}}>
+           <ActivityIndicatorIOS
+            animating={true}
+            size={'large'} />
+        </View>
+      )
+    }
+
     return (
       <View style={Theme.homefeed_container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderHeader={this.renderHeader.bind(this)}
+          //renderHeader={this.renderHeader.bind(this)}
           renderRow={this.renderRow.bind(this)} />
       </View>
     );
   }
 };
+
+module.exports = HomeFeed;
 

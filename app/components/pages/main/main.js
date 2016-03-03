@@ -23,7 +23,7 @@ import DBEvents from 'react-native-db-models';
  
 var Main = React.createClass({
  	
- 	componentDidMount(){
+ 	componentWillMount(){
  		userService.getUserSession((result)=> {
  			if(!result == 0) {
  				this.setState({

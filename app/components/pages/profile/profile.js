@@ -20,11 +20,11 @@ class Profile extends Component{
 		super(props);
 
 		 this.state = {
-		 	currentUser : this.props.data
+
 		 }
 	}
 
-	componentDidMount(){
+	componentWillMount(){
 		this.fetchData();
 	}
 
@@ -54,9 +54,6 @@ class Profile extends Component{
 	}
 
 	render(){
-		let tempUser = this.state.currentUser;
-		let user = JSON.parse(tempUser);
-		console.log(user);
 
 		return (
 		  <View style={Theme.profileContainer}>

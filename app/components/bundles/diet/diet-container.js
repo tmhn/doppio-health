@@ -8,6 +8,7 @@
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 import CompApi from '../../api/components-api';
+import Diet from './diet';
 
 let {
 	Component,
@@ -37,15 +38,20 @@ module.exports = class DietContainer extends Component{
 
 	fetchFeed(){
 		let feedItems = this.props.data;
-		console.log(feedItems.length);
 
 		this.setState({
-			dataSource: this.state.dataSource.cloneWithRows(feedItems)
+			dataSource: this.state.dataSource.cloneWithRows(feedItems.apps)
 		});
 	}
 
 	onPress(rowData){
-		console.log(`open page ${rowData.name}`);
+	    this.props.navigator.push({
+      		title: rowData.name,
+      		component: Diet,
+      		passProps: {
+        		data: rowData
+      		}
+    	});
 	}
 
 	renderRow(rowData){
@@ -58,6 +64,12 @@ module.exports = class DietContainer extends Component{
 			        	<Text style={Theme.diet_rowTitle}>
 			            	{rowData.name}
 			          	</Text>
+          	            <Text style={Theme.diet_rowBio}>
+              				{rowData.description}
+            			</Text>
+      	            	<Text style={Theme.diet_rowBio}>
+              				Goal: {rowData.goal}
+            			</Text>
 			        </View>
 				</View>
 			</TouchableHighlight>

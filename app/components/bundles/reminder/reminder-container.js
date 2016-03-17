@@ -6,6 +6,7 @@
 
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
+import Reminder from './reminder';
 
 let {
 	Component,
@@ -13,10 +14,11 @@ let {
 	ListView,
 	StyleSheet,
 	Text,
+	TouchableHighlight,
   	View,
 } = React;
 
-module.exports = class Reminder extends Component{
+class ReminderContainer extends Component{
 	constructor(props){
 		super(props);
 
@@ -35,43 +37,51 @@ module.exports = class Reminder extends Component{
 
 	fetchFeed(){
 		let feedItems = this.props.data;
-		console.log(feedItems.cats.length);
+		console.log(feedItems);
 		
 		this.setState({
 			dataSource: this.state.dataSource.cloneWithRows(feedItems.apps)
 		});
 	}
 
-	renderReminderSection(rowData){
-		//console.log(rowData.frequency);
+	onPress(rowData){
+		this.props.navigator.push({
+			title: rowData.name,
+			component: Reminder,
+			passProps: {
+				data: rowData
+			}
+		});
 	}
 
 	renderRow(rowData){
 		return(
-			<View style={Theme.reminder_rowView}>
-				<View style={Theme.reminder_rowText}>
-		          <Text style={Theme.reminder_rowTitle}>
-		            {rowData.name}
-		          </Text>
-		          <Text style={Theme.reminder_rowBio}>
-		            {rowData.bio}
-		          </Text>
-
-		          <View style={Theme.reminder_timesSection}>
-		          	<Image
-		          		source={require('../../assets/icons/clock_red.png')}
-		          		style={Theme.reminder_timesIcon} />
-		          		<View style={Theme.reminder_timesTextRow}>
-			          		<Text style={Theme.reminder_timesText}>{rowData.frequencyText1}</Text>
-			          		<Text style={Theme.reminder_timesText}>{rowData.frequencyText2}</Text>
-
-			          		{this.renderReminderSection(rowData)}
-		          		</View>
-		          </View>
-
-
-		        </View>
-			</View>
+			<TouchableHighlight
+				onPress={()=> this.onPress(rowData)}
+				underlayColor= '#FFF' >
+				<View style={Theme.reminder_rowView}>
+					<View style={Theme.reminder_rowText}>
+			          <Text style={Theme.reminder_rowTitle}>
+			            {rowData.name}
+			          </Text>
+			          <Text style={Theme.reminder_rowBio}>
+			          	{rowData.description}
+			          </Text>
+  			          <Text style={Theme.reminder_rowBio}>
+			          	Max: {rowData.max}
+			          </Text>
+			          <View style={Theme.reminder_timesSection}>
+			          	<Image
+			          		source={require('../../assets/icons/clock_red.png')}
+			          		style={Theme.reminder_timesIcon} />
+			          		<View style={Theme.reminder_timesTextRow}>
+				          		<Text style={Theme.reminder_timesText}>{rowData.time}</Text>
+				          		<Text style={Theme.reminder_timesText}>{rowData.frequencyText2}</Text>
+			          		</View>
+			          </View>
+		        	</View>
+				</View>
+			</TouchableHighlight>
 		);
 	}
 
@@ -85,3 +95,5 @@ module.exports = class Reminder extends Component{
 		);
 	}
 };
+
+module.exports = ReminderContainer;

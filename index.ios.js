@@ -10,6 +10,7 @@ var {
 
 class DoppioHealth extends React.Component{
   render() {
+  		console.log(`>> Welcome to DoppioHealth`)
     return (
       <Main />
     );

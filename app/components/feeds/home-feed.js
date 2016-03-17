@@ -6,7 +6,7 @@ import Theme from '../assets/theme/theme';
 import UserService from '../helpers/UserService';
 
 let componentsRegistry = {
-  Diet: require('../bundles/diet/diet-container'),
+  Regime: require('../bundles/diet/diet-container'),
   Record: require('../bundles/record/record-container'),
   Reminder: require('../bundles/reminder/reminder-container')
 };
@@ -37,35 +37,37 @@ class HomeFeed extends Component{
     };
   }
 
-  componentDidMount(){
-    this.fetchFeed();    
-  }
+  componentWillMount(){
 
-  fetchFeed(){
-    UserService.getUserSessionData((result) => {
-      console.log(result)
-      console.log(`HomeFeed: ${result.userId}`)
-      
-      let userId = result.userId
+      console.log(`>> HomeFeed - Feed Rendered`)
 
-        fetch(`http://localhost:8080/api/app/${userId}`)
-          .then((response) => {
-            return response._bodyText;
-        })
-        .then((responseBody) => {
-            let userResult = JSON.parse(responseBody)
-            let userSandboxes = userResult.sandboxes
-            
-            console.log(userSandboxes)
-            this.setState({
-              dataSource: this.state.dataSource.cloneWithRows(userSandboxes),
-              showProgress: false
-            });
+      UserService.getUserSessionData((result) => {
+        console.log(`>> HomeFeed - result: `)
+        console.log(result)
+        
+        let userId = result.userId
+        console.log(`>> HomeFeed - userId ${userId}`)
 
-        })
-        .done();
+          fetch(`http://localhost:8080/api/app/${userId}`)
+            .then((response) => {
+              return response._bodyText;
+          })
+          .then((responseBody) => {
+              let userResult = JSON.parse(responseBody)
+              let userSandboxes = userResult.sandboxes
+              
+              console.log(`>> HomeFeed - User Sandboxes:`)
+              console.log(userSandboxes)
+              this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(userSandboxes),
+                showProgress: false
+              });
 
-    });
+          })
+          .done();
+
+      }); 
+
   }
 
   onPress(rowData){
@@ -92,6 +94,7 @@ class HomeFeed extends Component{
   }
 
   renderRow(rowData){
+    let description = rowData.description.slice(0,1).toUpperCase() + rowData.description.slice(1)
 
     return(
       <TouchableHighlight
@@ -102,9 +105,8 @@ class HomeFeed extends Component{
               <Text style={Theme.homefeed_rowTitle}>
                 {rowData.name}
               </Text>
-              <Text style={Theme.homefeed_rowBio}>
-                {rowData.description}
-              </Text>
+              <Text style={Theme.homefeed_rowBio}><Text>Description: </Text>{rowData.description}</Text>
+              <Text style={Theme.homefeed_rowBio}><Text>Type: </Text>{rowData.type}</Text>
             </View>
           </View>
       </TouchableHighlight>
@@ -132,7 +134,6 @@ class HomeFeed extends Component{
       <View style={Theme.homefeed_container}>
         <ListView
           dataSource={this.state.dataSource}
-          //renderHeader={this.renderHeader.bind(this)}
           renderRow={this.renderRow.bind(this)} />
       </View>
     );

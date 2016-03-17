@@ -20,6 +20,10 @@ let {
 
 class Login extends Component{
 
+	componentDidMount(){
+
+	}
+
 	constructor(props){
 		super(props);
 		this.state = {
@@ -66,7 +70,7 @@ class Login extends Component{
 	}
 
   	render() {
-
+  		
   		var errorCtrl = <View />
 	  	if(this.state.badCredentials == true){
 	  		errorCtrl = <Text style={Theme.loginError}> Incorrect Credentials</Text>

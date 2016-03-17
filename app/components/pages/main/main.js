@@ -24,13 +24,17 @@ import DBEvents from 'react-native-db-models';
 var Main = React.createClass({
  	
  	componentWillMount(){
+ 		console.log(`>> Main.js - CWM`)
+
  		userService.getUserSession((result)=> {
  			if(!result == 0) {
+ 				console.log(`>> Main.js - User Logged In`)
  				this.setState({
  				  isLoggedIn: true,
  				});
 
  			} else {
+ 				console.log(`>> Main.js - Rendering Login view`)
  				this.setState({
  				  isLoggedIn: false,
  				});
@@ -53,8 +57,10 @@ var Main = React.createClass({
 	},
 
 	onLogin(currentUser){
+		console.log(`>> Main.js - Current User: `)
+		console.log(currentUser)
 		let current = JSON.parse(currentUser)
-		
+
 		DB.user_session.add({
 			userId: current._id,
 			username: current.username,
@@ -68,9 +74,14 @@ var Main = React.createClass({
 
 
 		}, function(added_data){
+			console.log(`>> Main.js - Added User: `)
+			console.log(added_data)
 			this.setState({
 			  user: added_data,
 			});
+
+			console.log(`>> MainJS - successful user -`)
+			console.log(this.state.user)
 		});
 
 		this.setState({

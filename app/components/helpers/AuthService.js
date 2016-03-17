@@ -19,7 +19,8 @@ class AuthService{
 		.then((response) => {
 
 			jsonResultBody = response._bodyInit
-			console.log("-------- RESPONSE BODY -------")
+
+			console.log(">> AuthService - Response Body")
 			console.log(jsonResultBody)
 
 			if(jsonResultBody == 'null'){

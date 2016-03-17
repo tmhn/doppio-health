@@ -1,19 +1,16 @@
-/* @flow */
 'use strict';
-
 import React from 'react-native';
-import Theme from '../../assets/theme/theme';
+import Theme from '../assets/theme/theme';
 
 let {
-  AlertIOS,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
+	AlertIOS,
+	StyleSheet,
+	Text,
+	TouchableHighlight,
+	View
 } = React;
 
-let DietComponent = {
-  
+let Api = {
   getButton(title, fn){
   	return (
 		<TouchableHighlight
@@ -39,10 +36,6 @@ let DietComponent = {
 		</TouchableHighlight>
 	);
   },
+}
 
-};
-
-
-
-
-module.exports = DietComponent;
+module.exports = Api;

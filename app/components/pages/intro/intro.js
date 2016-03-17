@@ -18,7 +18,7 @@ class Intro extends Component{
     
     return (
       <View style={Theme.introContainer}>
-      	<Text style={Theme.introHeader}>DoppioHealth</Text>
+      	<Text style={Theme.introHeader}>DoppioHealth iOS</Text>
       	<View style={{padding: 35}}>
 
       		<View style={{paddingBottom: 20, flexDirection: 'row'}}>

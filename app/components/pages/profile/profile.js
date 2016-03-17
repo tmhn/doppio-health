@@ -30,8 +30,6 @@ class Profile extends Component{
 
 	fetchData(){
 		UserService.getUserSessionData((result) => {
-			console.log(`>> ProfilePage - DB Results`)
-			
 			let firstName = result.first_name;
 			let lastName = result.last_name;
 			let username = result.username;
@@ -50,6 +48,15 @@ class Profile extends Component{
 			  BloodGroup: bloodGroup,
 			  Allergies: allergies
 			});
+
+			console.log(`>> ProfilePage: User -----`)
+			console.log(`>> ${this.state.FirstName}`)
+			console.log(`>> ${this.state.LastName}`)
+			console.log(`>> ${this.state.Username}`)
+			console.log(`>> ${this.state.UserPass}`)
+			console.log(`>> ${this.state.Age}`)
+			console.log(`>> ${this.state.BloodGroup}`)
+			console.log(`>> ${this.state.Allergies}`)
 		})
 	}
 

@@ -36,7 +36,6 @@ module.exports = class RecordContainer extends Component{
 
   fetchFeed(){
     let feedItems = this.props.data;
-    //console.log(feedItems.cats.length);
 
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(feedItems.apps)
@@ -53,9 +52,8 @@ module.exports = class RecordContainer extends Component{
     });
   }
 
-
   renderRow(rowData){
-
+    console.log(`>> record-container: ${JSON.stringify(rowData)}`)
     return (
       <TouchableHighlight
         onPress={()=> this.onPress(rowData)}
@@ -66,7 +64,7 @@ module.exports = class RecordContainer extends Component{
               {rowData.name}
             </Text>
             <Text style={Theme.record_rowBio}>
-              Record: {rowData.bio}
+              {rowData.description}
             </Text>
           </View>
         </View>

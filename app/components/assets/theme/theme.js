@@ -1,5 +1,8 @@
 // DoppioHealth - theme.js
 
+// Base Red : #ff5a5f
+// Base Blue: #498EE0
+
 module.exports = {
 
 // Login
@@ -19,6 +22,52 @@ module.exports = {
 	    backgroundColor: '#FFF',
 	},
 // ------ Bundle Components ------
+// Bundle
+	bundle_button: {
+		height: 45,
+		flexDirection: 'row',
+		backgroundColor: '#498EE0',
+		borderColor: 'white',
+		borderWidth: 1,
+		borderRadius: 8,
+		marginBottom: 10,
+		marginTop: 10,
+		alignSelf: 'stretch',
+		justifyContent: 'center',
+	},
+	bundle_page: {
+		flex: 1,
+		padding: 25,
+		paddingBottom: 95,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		backgroundColor: '#FFF',
+	},
+	bundle_header: {
+		marginBottom: 20,
+		fontSize: 25,
+		textAlign: 'center',
+		color: '#498EE0',
+		fontFamily: 'Avenir',
+	},
+	bundle_save: {
+		height: 45,
+		flexDirection: 'row',
+		backgroundColor: '#5cb85c',
+		borderColor: 'white',
+		borderWidth: 1,
+		borderRadius: 8,
+		marginBottom: 10,
+		marginTop: 10,
+		alignSelf: 'stretch',
+		justifyContent: 'center',
+	},
+	bundle_text:{
+		marginBottom: 20,
+		fontSize: 17,
+		textAlign: 'center',
+		fontFamily: 'Avenir',
+	},
 // Diet
 	diet_container: {
 		flex: 1,
@@ -114,8 +163,8 @@ module.exports = {
 		flex: 1,
 	    flexDirection: 'row',
 	    padding: 20,
-	    paddingTop: 30,
-	    paddingBottom: 30,
+	    paddingTop: 20,
+	    paddingBottom: 20,
 	    alignItems: 'center',
 	    borderColor: '#D7D7D7',
 	    borderBottomWidth: 1,
@@ -133,7 +182,7 @@ module.exports = {
 	reminder_rowBio: {
 		backgroundColor: '#FFF',
     	fontFamily: 'Avenir',
-    	paddingBottom: 10,
+    	//paddingBottom: 5,
 	},
 	reminder_timesSection: {
 		flexDirection: 'row',
@@ -180,7 +229,7 @@ module.exports = {
     	color: '#498EE0', 
     	fontWeight: '700',
     	fontFamily: 'Avenir',
-    	fontSize: 20,
+    	fontSize: 22,
 	},
 	homefeed_rowBio: {
 		backgroundColor: '#FFF',
@@ -340,6 +389,7 @@ module.exports = {
 		alignSelf: 'center',
 		fontFamily: 'Avenir',
 	},
+
   	container: {
   		flex: 1,
   		backgroundColor: '#48BBEC',

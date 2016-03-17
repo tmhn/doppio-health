@@ -35,33 +35,7 @@ class AppContainer extends Component{
     }
   }
 
-  componentDidMount(){
-
-    // UserService.getUserSessionData((result) => {
-    //   console.log(`AppContainer: ${result.userId}`)
-      
-    //   this.setState({
-    //     user: JSON.stringify(result),
-    //     loggedIn: true,
-    //     userId: result.userId
-    //   });
-
-    //   fetch(`http://localhost:8080/api/app/${this.state.userId}`)
-    //     .then((response) => {
-    //       return response._bodyText;
-    //   })
-    //   .then((responseBody) => {
-    //       console.log(`>> AppContainer: Returned Apps from DB: `)
-    //       let userResult = JSON.parse(responseBody)
-    //       let userSandboxes = userResult.sandboxes
-    //       this.setState({
-    //         apps: userSandboxes,
-    //       });
-
-    //   })
-    //   .done();
-
-    // });    
+  componentDidMount(){  
 
   }
 

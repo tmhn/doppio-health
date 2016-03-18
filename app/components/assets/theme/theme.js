@@ -269,6 +269,7 @@ module.exports = {
 		flex: 1,
 		justifyContent: 'flex-start',
     	backgroundColor: '#FFF',
+    	paddingTop: 60
 	},
 	diary_row: {
 		flex: 1,
@@ -301,6 +302,7 @@ module.exports = {
 		backgroundColor: '#FFF',
     	fontFamily: 'Avenir',
 	},
+
 // ------ Pages ------
 
 // 	App-Container

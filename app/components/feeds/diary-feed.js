@@ -15,20 +15,6 @@ let {
   View,
 } = React;
 
-let diaryItems = {
-    "diaryFeed": [
-        {
-            "title": "Apple",
-            "bio": "Pink Lady",
-            "ref": "fruit",
-            "timeStamp": "yesterday",
-            "bundle": "record",
-            "component": "Fruit",
-            "count": 5
-        }
-    ]
-};
-
 class DiaryFeed extends Component{
   constructor(props){
     super(props);
@@ -39,7 +25,8 @@ class DiaryFeed extends Component{
 
     this.state = {
       dataSource: ds.cloneWithRows(['A', 'B', 'C']),
-      showProgress: true
+      showProgress: true,
+      emptyDiary: true
     };
   }
 
@@ -58,11 +45,26 @@ class DiaryFeed extends Component{
 
       console.log(array)
 
+      if(!array.length == 0){
+        this.setState({
+          emptyDiary: false,
+        });
+      } else {
+        this.setState({
+          emptyDiary: true,
+        });
+      }
+
+
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(array),
       });
     })
   
+  }
+
+  renderDiaryUpdate(){
+    console.log(`updating diary....`);
   }
 
   renderRow(rowData){
@@ -84,6 +86,17 @@ class DiaryFeed extends Component{
   }
 
   render() {
+
+    this.renderDiaryUpdate();
+
+    if(this.state.emptyDiary){
+      return(
+        <View style={Theme.mainContainer}>
+          <Text style={Theme.title}>Diary Empty</Text>
+        </View>
+      )
+    }
+
     return (
       <View style={Theme.diary_container}>
         <ListView

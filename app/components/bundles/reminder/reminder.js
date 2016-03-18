@@ -4,6 +4,7 @@
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 import api from '../api';
+import DB from '../../data/db';
 
 let {
 	AlertIOS,
@@ -21,6 +22,8 @@ class Reminder extends Component{
   		this.state = {
   			count: 0,
   			userBoundary: this.props.data.max,
+        name: this.props.data.name,
+        description: this.props.data.description
   		}
   	}
 
@@ -59,21 +62,31 @@ class Reminder extends Component{
   		}
   	}
 
-  	saveRecord(){
-    // Save counter to AS
-    // Notify it has been saved
-    // Pop Navigator
+  	saveItem(){
+    let name = this.state.name;
+    let description = this.state.description;
+    let count = this.state.count;
+
+    DB.diary.add({
+      name: name,
+      description: description,
+      count: count
+    }, function(added_data){
+      console.log(`>> Record - Added Data`)
+      console.log(added_data)
+    })
 
 	    AlertIOS.alert(
 	        `${this.props.data.name}`,
 	        `${this.props.data.name} saved!`,
 	        [
 	          {
-	            text: 'OK'
+	            text: 'OK',
+              onPress: () => this.props.navigator.pop()
 	          }
 	        ]
 	      )    
-	    this.props.navigator.pop();
+	    //this.props.navigator.pop();
 	  }
 
   	decrementCount(){
@@ -104,7 +117,7 @@ class Reminder extends Component{
 		      	
 		        {api.getButton(increment, this.incrementCount.bind(this))}
 		        {api.getButton(decrement, this.decrementCount.bind(this))}
-		        {api.getSaveButton(save, this.saveRecord.bind(this))}
+		        {api.getSaveButton(save, this.saveItem.bind(this))}
 	      	</View>
     	);
 	}

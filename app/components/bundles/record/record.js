@@ -4,7 +4,6 @@
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 import api from '../api';
-
 import DB from '../../data/db'
 
 let {
@@ -86,11 +85,12 @@ class Record extends Component {
         `${this.props.data.name} saved!`,
         [
           {
-            text: 'OK'
+            text: 'OK',
+            onPress: () => this.props.navigator.pop()
           }
         ]
       )    
-    this.props.navigator.pop();
+    //this.props.navigator.pop();
   }
 
   render() {

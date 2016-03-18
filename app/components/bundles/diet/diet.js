@@ -88,11 +88,11 @@ class Diet extends Component{
         `${this.props.data.name} saved!`,
         [
           {
-            text: 'OK'
+            text: 'Confirm',
+            onPress: () => this.props.navigator.pop()
           }
         ]
       )    
-    this.props.navigator.pop();
   }
 
 

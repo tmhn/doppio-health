@@ -6,6 +6,9 @@ import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 import api from '../api';
 
+import UserService from '../../helpers/UserService';
+import DB from '../../data/db'
+
 let {
   AlertIOS,
   Component,
@@ -21,8 +24,10 @@ class Record extends Component {
     super(props);
 
     this.state = {
-      recordCount: 0,
+      count: 0,
       userBoundary: 5,
+      name: this.props.data.name,
+      description: this.props.data.description
     }
   }
 
@@ -45,38 +50,47 @@ class Record extends Component {
   }
 
   incrementCount(){
-    let currentCount = this.state.recordCount;
+    let currentCount = this.state.count;
     let currentUserBoundary = this.state.userBoundary;
 
     if(currentCount == currentUserBoundary){
       this.alertUser();
       this.setState({
-        recordCount: this.state.recordCount + 1,
+        count: this.state.count + 1,
       });
       
     } else {
       this.setState({
-        recordCount: this.state.recordCount + 1,
+        count: this.state.count + 1,
       });
     }
   }
 
   decrementCount(){
-    if(this.state.recordCount > 0){
+    if(this.state.count > 0){
         this.setState({
-          recordCount: this.state.recordCount - 1,
+          count: this.state.count - 1,
     });
     }
   }
 
-  saveRecord(){
-    // Save counter to AS
-    // Notify it has been saved
-    // Pop Navigator
+  saveItem(){
+    let name = this.state.name;
+    let description = this.state.description;
+    let count = this.state.count;
+
+    DB.diary.add({
+      name: name,
+      description: description,
+      count: count
+    }, function(added_data){
+      console.log(`>> Record - Added Data`)
+      console.log(added_data)
+    })
 
     AlertIOS.alert(
         `${this.props.data.name}`,
-        `You have reached your limit for ${this.props.data.name}`,
+        `${this.props.data.name} saved!`,
         [
           {
             text: 'OK'
@@ -84,10 +98,6 @@ class Record extends Component {
         ]
       )    
     this.props.navigator.pop();
-  }
-
-  renderRecordCounter(){
-
   }
 
   render() {
@@ -98,10 +108,11 @@ class Record extends Component {
     return (
       <View style={Theme.bundle_page}>
       	<Text style={Theme.bundle_header}>{this.props.data.name}</Text>
-      	<Text style={Theme.bundle_text}>Count: {this.state.recordCount}</Text>
+      	<Text style={Theme.bundle_text}>{this.props.data.description}</Text>
+        <Text style={Theme.bundle_text}>Count: {this.state.count}</Text>
         {api.getButton(increment, this.incrementCount.bind(this))}
         {api.getButton(decrement, this.decrementCount.bind(this))}
-        {api.getSaveButton(save, this.saveRecord.bind(this))}
+        {api.getSaveButton(save, this.saveItem.bind(this))}
       </View>
     );
   }

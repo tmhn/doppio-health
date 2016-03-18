@@ -188,6 +188,17 @@ module.exports = {
 		flexDirection: 'row',
 		//paddingTop: 15,
 	},
+	reminder_timesTextClock: {
+		paddingLeft: 15,
+		marginBottom: 20,
+		fontSize: 17,
+		textAlign: 'center',
+		fontFamily: 'Avenir',
+	},
+	reminder_times: {
+		flexDirection: 'row',
+		justifyContent: 'center'
+	},
 	reminder_timesIcon: {
 		height: 28,
 	    width: 28,
@@ -266,9 +277,15 @@ module.exports = {
     	alignItems: 'center',
     	borderColor: '#D7D7D7',
     	borderBottomWidth: 1,
+    	paddingRight: 10
 	},
 	diary_rowText: {
 		paddingLeft: 20,
+		paddingRight: 30
+	},
+	diary_rowCount: {
+		paddingLeft: 110
+		
 	},
 	diary_rowTitle: {
 		backgroundColor: '#FFF',

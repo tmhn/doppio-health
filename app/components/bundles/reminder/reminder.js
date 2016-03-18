@@ -8,6 +8,7 @@ import api from '../api';
 let {
 	AlertIOS,
 	Component,
+	Image,
   	StyleSheet,
   	Text,
   	View,
@@ -94,7 +95,13 @@ class Reminder extends Component{
 		      	<Text style={Theme.bundle_header}>{this.props.data.name}</Text>
 		      	<Text style={Theme.bundle_text}>{this.props.data.description}</Text>
 		      	<Text style={Theme.bundle_text}>Count: {this.state.reminderCount}</Text>
-		      	<Text style={Theme.bundle_text}>Time: {this.props.data.time}</Text>
+		      	<View style={Theme.reminder_times}>
+		          	<Image
+		          		source={require('../../assets/icons/clock_red.png')}
+		          		style={Theme.reminder_timesIcon} />
+		      		<Text style={Theme.reminder_timesTextClock}>Time: {this.props.data.time}</Text>	
+		      	</View>
+		      	
 		        {api.getButton(increment, this.incrementCount.bind(this))}
 		        {api.getButton(decrement, this.decrementCount.bind(this))}
 		        {api.getSaveButton(save, this.saveRecord.bind(this))}

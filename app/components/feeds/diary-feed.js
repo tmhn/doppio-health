@@ -4,7 +4,10 @@ import React from 'react-native';
 import Theme from '../assets/theme/theme';
 import Data from '../data/data';
 
+import UserService from '../helpers/UserService';
+
 let {
+  ActivityIndicatorIOS,  
   Component,
   ListView,
   StyleSheet,
@@ -20,36 +23,13 @@ let diaryItems = {
             "ref": "fruit",
             "timeStamp": "yesterday",
             "bundle": "record",
-            "component": "Fruit"
-        },
-        {
-            "title": "Banana",
-            "bio": "Candy Banana",
-            "ref": "fruit",
-            "timeStamp": "yesterday",
-            "bundle": "record",
-            "component": "Fruit"
-        },
-        {
-            "title": "Apple",
-            "bio": "Pink Lady TODAY",
-            "ref": "fruit",
-            "timeStamp": "today",
-            "bundle": "record",
-            "component": "Fruit"
-        },
-        {
-            "title": "Banana",
-            "bio": "Candy Banana TODAY",
-            "ref": "fruit",
-            "timeStamp": "today",
-            "bundle": "record",
-            "component": "Fruit"
+            "component": "Fruit",
+            "count": 5
         }
     ]
 };
 
-module.exports = class DiaryFeed extends Component{
+class DiaryFeed extends Component{
   constructor(props){
     super(props);
 
@@ -59,22 +39,34 @@ module.exports = class DiaryFeed extends Component{
 
     this.state = {
       dataSource: ds.cloneWithRows(['A', 'B', 'C']),
+      showProgress: true
     };
   }
 
   componentDidMount(){
-    this.fetchFeed();
+    //console.log(`>> DiaryFeed - Feed View Loaded`)
+
+    UserService.getDiaryFeed((result) => {
+      let diaryItem = result;
+      let item = diaryItem.rows
+      let newStr = JSON.stringify(item)
+      let diaryJson = JSON.parse(newStr)
+
+      var array = [];
+      for (let prop in item) {
+        array.push(item[prop]);
+      }
+
+      console.log(array)
+
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(array),
+      });
+    })
+  
   }
 
   fetchFeed(){
-    let feedItems = diaryItems;
-
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(feedItems.diaryFeed),
-    });
-  }
-
-  renderHeader(rowData){
 
   }
 
@@ -83,11 +75,14 @@ module.exports = class DiaryFeed extends Component{
       <View style={Theme.diary_row}>
         <View style={Theme.diary_rowText}>
           <Text style={Theme.diary_rowTitle}>
-            {rowData.title}
+            {rowData.name}
           </Text>
           <Text style={Theme.diary_rowBio}>
-            {rowData.bio}
+            {rowData.description}
           </Text>
+        </View>
+        <View>
+          <Text style={Theme.diary_rowCount}>Count: {rowData.count}</Text>
         </View>
       </View>
     );
@@ -103,3 +98,5 @@ module.exports = class DiaryFeed extends Component{
     );
   }
 };
+
+module.exports = DiaryFeed;

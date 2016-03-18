@@ -46,23 +46,35 @@ class UserService{
 	getUserSessionData(cb){
 
 		DB.user_session.get_all(function(result){
-			//console.log(`>> UserService: get_all result ${JSON.stringify(result)}`)
+			
 			var getAllResults = result;
-
 			let tempUser = JSON.stringify(getAllResults);
 			let str = tempUser.slice(42, (tempUser.length)-3);
 
-			//console.log(`>> UserService: JSON PARSED STR`)
-			//console.log(str);
-
 			let jsonStr = `{${str}}`;
-			let tempjson = JSON.parse(jsonStr)
-
-			//console.log(`>> UserService: Clean User Details: `)
-			//console.log(tempjson)
-			
+			let tempjson = JSON.parse(jsonStr)			
 			cb(tempjson);
 		});
+	}
+
+	getDiaryFeed(cb){
+		DB.diary.get_all(function(result){
+			//console.log(result)
+			cb(result);
+		})
+	}
+
+	createDiaryItem(item){
+		let diaryItem = JSON.parse(item);
+
+		DB.diary.add({
+			name: item.name,
+			description: item.description,
+			count: item.count
+		}, function(added_data){
+			console.log(`>> UserService DiaryFeed - added data`)
+			console.log(added_data)
+		})
 	}
 
 }

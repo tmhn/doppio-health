@@ -273,7 +273,7 @@ module.exports = {
 	diary_row: {
 		flex: 1,
     	flexDirection: 'row',
-    	padding: 20,
+    	padding: 17,
     	alignItems: 'center',
     	borderColor: '#D7D7D7',
     	borderBottomWidth: 1,
@@ -283,9 +283,12 @@ module.exports = {
 		paddingLeft: 20,
 		paddingRight: 30
 	},
+	diary_count: {
+		right: 5
+	},
 	diary_rowCount: {
-		paddingLeft: 110
-		
+		//paddingLeft: 110
+		alignSelf: 'flex-end'
 	},
 	diary_rowTitle: {
 		backgroundColor: '#FFF',

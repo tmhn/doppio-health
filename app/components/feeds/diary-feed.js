@@ -44,7 +44,6 @@ class DiaryFeed extends Component{
   }
 
   componentDidMount(){
-    //console.log(`>> DiaryFeed - Feed View Loaded`)
 
     UserService.getDiaryFeed((result) => {
       let diaryItem = result;
@@ -66,10 +65,6 @@ class DiaryFeed extends Component{
   
   }
 
-  fetchFeed(){
-
-  }
-
   renderRow(rowData){
     return(
       <View style={Theme.diary_row}>
@@ -80,9 +75,9 @@ class DiaryFeed extends Component{
           <Text style={Theme.diary_rowBio}>
             {rowData.description}
           </Text>
-        </View>
-        <View>
-          <Text style={Theme.diary_rowCount}>Count: {rowData.count}</Text>
+          <Text style={Theme.diary_rowBio}>
+            Count: {rowData.count}
+          </Text>
         </View>
       </View>
     );

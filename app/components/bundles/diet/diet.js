@@ -5,6 +5,8 @@ import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 import api from '../api';
 
+import DB from '../../data/db';
+
 let {
 	AlertIOS,
 	Component,
@@ -19,8 +21,10 @@ class Diet extends Component{
 		super(props);
 
 		this.state = {
-			dietCount: 0,
-			userBoundary: this.props.data.goal
+			count: 0,
+			userBoundary: this.props.data.goal,
+			name: this.props.data.name,
+			description: this.props.data.description,
 		}
 	}
 
@@ -40,39 +44,48 @@ class Diet extends Component{
 	}
 
 	incrementCount(){
-		let currentCount = this.state.dietCount;
+		let currentCount = this.state.count;
 		let currentUserBoundary = this.state.userBoundary;
 
 		if(currentCount == currentUserBoundary){
 
 			this.alertUser();
 			this.setState({
-			  dietCount: this.state.dietCount + 1,
+			  count: this.state.count + 1,
 			});
 
 		} else {
 			this.setState({
-			  dietCount: this.state.dietCount + 1
+			  count: this.state.count + 1
 			});
 		}
 	}
 
 	decrementCount(){
-		if(this.state.dietCount > 0){
+		if(this.state.count > 0){
 			this.setState({
-			  dietCount: this.state.dietCount - 1,
+			  count: this.state.count - 1,
 			});
 		}
 	}
 
-	saveRecord(){
-    // Save counter to AS
-    // Notify it has been saved
-    // Pop Navigator
+	saveItem(){
+		let name = this.state.name;
+		let description = this.state.description;
+		let count = this.state.count;
+
+	    DB.diary.add({
+	      name: name,
+	      description: description,
+	      count: count
+	    }, function(added_data){
+	      console.log(`>> Record - Added Data`)
+	      console.log(added_data)
+	    })
 
     AlertIOS.alert(
         `${this.props.data.name}`,
-        `You have reached your limit for ${this.props.data.name}`,
+        `${this.props.data.name} saved!`,
         [
           {
             text: 'OK'
@@ -92,10 +105,10 @@ class Diet extends Component{
 	      <View style={Theme.bundle_page}>
 	      	<Text style={Theme.bundle_header}>{this.props.data.name}</Text>
 	      	<Text style={Theme.bundle_text}>{this.props.data.description}</Text>
-	      	<Text style={Theme.bundle_text}>Count: {this.state.dietCount}</Text>
+	      	<Text style={Theme.bundle_text}>Count: {this.state.count}</Text>
 	        {api.getButton(increment, this.incrementCount.bind(this))}
 	        {api.getButton(decrement, this.decrementCount.bind(this))}
-	        {api.getSaveButton(save, this.saveRecord.bind(this))}
+	        {api.getSaveButton(save, this.saveItem.bind(this))}
 	      </View>
 	    );
   	}

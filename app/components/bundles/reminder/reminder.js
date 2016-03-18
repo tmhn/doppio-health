@@ -19,7 +19,7 @@ class Reminder extends Component{
   		super(props);
 
   		this.state = {
-  			reminderCount: 0,
+  			count: 0,
   			userBoundary: this.props.data.max,
   		}
   	}
@@ -42,19 +42,19 @@ class Reminder extends Component{
   	}
 
   	incrementCount(){
-  		let currentCount = this.state.reminderCount;
+  		let currentCount = this.state.count;
   		let currentUserBoundary = this.state.userBoundary;
 
   		if(currentCount == (currentUserBoundary - 1)){
   			this.alertUser();
   			{
   				this.setState({
-  				  reminderCount: this.state.reminderCount + 1,
+  				  count: this.state.count + 1,
   				});
   			}
   		} else {
   			this.setState({
-  			  reminderCount: this.state.reminderCount + 1,
+  			  count: this.state.count + 1,
   			});
   		}
   	}
@@ -77,9 +77,9 @@ class Reminder extends Component{
 	  }
 
   	decrementCount(){
-  		if(this.state.reminderCount > 0){
+  		if(this.state.count > 0){
   			this.setState({
-  			  reminderCount: this.state.reminderCount - 1,
+  			  count: this.state.count - 1,
   			});
   		}
   	}
@@ -94,7 +94,7 @@ class Reminder extends Component{
       		<View style={Theme.bundle_page}>
 		      	<Text style={Theme.bundle_header}>{this.props.data.name}</Text>
 		      	<Text style={Theme.bundle_text}>{this.props.data.description}</Text>
-		      	<Text style={Theme.bundle_text}>Count: {this.state.reminderCount}</Text>
+		      	<Text style={Theme.bundle_text}>Count: {this.state.count}</Text>
 		      	<View style={Theme.reminder_times}>
 		          	<Image
 		          		source={require('../../assets/icons/clock_red.png')}

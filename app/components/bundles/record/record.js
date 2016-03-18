@@ -1,12 +1,10 @@
 // Render component - Specific Page for Record Item
-// Will allow users to
 'use strict';
 
 import React from 'react-native';
 import Theme from '../../assets/theme/theme';
 import api from '../api';
 
-import UserService from '../../helpers/UserService';
 import DB from '../../data/db'
 
 let {
@@ -25,7 +23,7 @@ class Record extends Component {
 
     this.state = {
       count: 0,
-      userBoundary: 5,
+      //userBoundary: 5,
       name: this.props.data.name,
       description: this.props.data.description
     }
@@ -50,20 +48,15 @@ class Record extends Component {
   }
 
   incrementCount(){
+
+    // incrementCount simply updates for Record
+
     let currentCount = this.state.count;
     let currentUserBoundary = this.state.userBoundary;
 
-    if(currentCount == currentUserBoundary){
-      this.alertUser();
-      this.setState({
-        count: this.state.count + 1,
-      });
-      
-    } else {
-      this.setState({
-        count: this.state.count + 1,
-      });
-    }
+    this.setState({
+      count: this.state.count + 1,
+    });
   }
 
   decrementCount(){

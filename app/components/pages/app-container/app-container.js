@@ -44,6 +44,10 @@ class AppContainer extends Component{
     UserService.deleteUserSession();
   }
 
+  navbarDeleteDiary(){
+    UserService.deleteUserDiary();
+  }
+
   render() {
     StatusBarIOS.setStyle("light-content")
 
@@ -126,6 +130,10 @@ class AppContainer extends Component{
                     {
                       text: 'OK',
                       onPress: () => this.navbarLogout(),
+                    },
+                    {
+                      text: 'Reset',
+                      onPress: () => this.navbarDeleteDiary(),
                     },
                     {
                       text: 'Cancel',

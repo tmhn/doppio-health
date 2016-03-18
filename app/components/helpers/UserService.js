@@ -33,6 +33,11 @@ class UserService{
 		});
 	}
 
+	deleteUserDiary(cb){
+		DB.diary.erase_db(function(removed_data){
+			db(removed_data);
+		})
+	}
 
 	// Clean function to allow successful login
 	getUserSession(cb){

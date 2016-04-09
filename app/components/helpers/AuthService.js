@@ -16,6 +16,7 @@ class AuthService{
 		let jsonResultBody
 
 		fetch(`http://localhost:8080/api/app/user/${creds.userPass}`)
+		//fetch(`https://doppiohealth.herokuapp.com/api/app/user/${creds.userPass}`)
 		.then((response) => {
 
 			jsonResultBody = response._bodyInit
@@ -32,7 +33,10 @@ class AuthService{
 
 			} else {
 				console.log(`>> UserDB response successful for ${creds.userPass}! Success results returned!`);
-
+				
+				let newStr = JSON.parse(jsonResultBody)
+				console.log(`>> JSON RESULT BODY`)
+				console.log(newStr._id)
 				// DBModels set user
 				// userService.createUserSession(jsonResultBody);
 
@@ -47,7 +51,8 @@ class AuthService{
 
 	loadSandbox(creds, cb){
 
-		fetch(`http://localhost:8080/api/app/${creds.userId}`)
+		//fetch(`http://localhost:8080/api/app/${creds.userId}`)
+		fetch(`http://https://doppiohealth.herokuapp.com/api/app/${creds.userId}`)
 		.then((response) => {
 			return cb(response)
 		})

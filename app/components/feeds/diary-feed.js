@@ -5,13 +5,16 @@ import Theme from '../assets/theme/theme';
 import Data from '../data/data';
 
 import UserService from '../helpers/UserService';
+import api from '../api/components-api';
 
 let {
-  ActivityIndicatorIOS,  
+  ActivityIndicatorIOS,
+  AlertIOS,  
   Component,
   ListView,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
 } = React;
 
@@ -65,6 +68,32 @@ class DiaryFeed extends Component{
 
   renderDiaryUpdate(){
     console.log(`updating diary....`);
+    UserService.getDiaryFeed((result) => {
+      let diaryItem = result;
+      let item = diaryItem.rows
+      let newStr = JSON.stringify(item)
+      let diaryJson = JSON.parse(newStr)
+
+      var array = [];
+      for (let prop in item) {
+        array.push(item[prop]);
+      }
+      
+      if(!array.length == 0){
+        this.setState({
+          emptyDiary: false,
+        });
+      } else {
+        this.setState({
+          emptyDiary: true,
+        });
+      }
+
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(array),
+      });
+    })
+
   }
 
   renderRow(rowData){
@@ -85,14 +114,34 @@ class DiaryFeed extends Component{
     );
   }
 
-  render() {
+  renderHeader(){
+    return(
+      <View style={Theme.diaryfeed_header}>
+        
+        <TouchableHighlight
+          onPress={() => console.log(`updating diary`)}
+          style={Theme.diary_button}
+          underlayColor='white'>
+          <Text style={Theme.buttonText}>Load</Text>
+        </TouchableHighlight>
+      </View>
+    )
+  }
 
-    this.renderDiaryUpdate();
+  render() {
 
     if(this.state.emptyDiary){
       return(
         <View style={Theme.mainContainer}>
           <Text style={Theme.title}>Diary Empty</Text>
+
+          <TouchableHighlight
+            onPress={() => console.log(`updating diary`)}
+            style={Theme.diary_button}
+            underlayColor='white'>
+            <Text style={Theme.buttonText}>Load Diary</Text>
+          </TouchableHighlight>
+
         </View>
       )
     }
@@ -101,6 +150,7 @@ class DiaryFeed extends Component{
       <View style={Theme.diary_container}>
         <ListView
           dataSource={this.state.dataSource}
+          //renderHeader={this.renderHeader.bind(this)}
           renderRow={this.renderRow.bind(this)} />
       </View>
     );

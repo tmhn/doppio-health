@@ -33,7 +33,8 @@ class HomeFeed extends Component{
 
     this.state = {
       dataSource: ds.cloneWithRows(['A', 'B', 'C']),
-      showProgress: true
+      showProgress: true,
+      nullResult: false
     };
   }
 
@@ -48,16 +49,26 @@ class HomeFeed extends Component{
         let userId = result.userId
         console.log(`>> HomeFeed - userId ${userId}`)
 
-          fetch(`http://localhost:8080/api/app/${userId}`)
+          fetch(`http://localhost:8080/api/app/5703895d9850481200297e2e`)
+          //fetch(`https://doppiohealth.herokuapp.com/api/app/${userId}`)
             .then((response) => {
               return response._bodyText;
           })
           .then((responseBody) => {
               let userResult = JSON.parse(responseBody)
+              console.log("RESULT")
+              console.log(userResult)
+
+              console.log("USER SANDBOXES")
+              console.log(userResult)
+              
               let userSandboxes = userResult.sandboxes
+
+              //let userSandboxes = userResult.sandboxes
               
               console.log(`>> HomeFeed - User Sandboxes:`)
-              console.log(userSandboxes)
+              //console.log(userSandboxes)
+
               this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(userSandboxes),
                 showProgress: false
@@ -128,6 +139,16 @@ class HomeFeed extends Component{
             size={'large'} />
         </View>
       )
+    }
+
+    if(this.state.nullResult){
+      return (
+          <View style={Theme.mainContainer}>
+            <Text style={Theme.title}>
+              Error connecting to database
+            </Text>
+          </View>
+        )
     }
 
     return (

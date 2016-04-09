@@ -24,6 +24,18 @@
 			</TouchableHighlight>
 		);
  	},
+ 	getDiaryButton(title, fn){
+ 		return (
+ 			<TouchableHighlight
+ 				style={Theme.diary_button}
+ 				onPress={fn}
+ 				underlayColor="white" >
+				<Text style={Theme.buttonText}>
+					{title}
+				</Text>
+			</TouchableHighlight>
+		);
+ 	},
 
  	getRowButton(title, fn){
  		return(

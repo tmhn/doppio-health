@@ -14,6 +14,7 @@ import DBEvents from 'react-native-db-models';
 
  let {
     ActivityIndicatorIOS,
+    AlertIOS,
     NavigatorIOS,
     Text,
     TextInput,
@@ -24,9 +25,12 @@ import DBEvents from 'react-native-db-models';
 var Main = React.createClass({
  	
  	componentWillMount(){
- 		console.log(`>> Main.js - CWM`)
+ 		console.log(`>> Main.js - ComponentWillMount`)
 
  		userService.getUserSession((result)=> {
+ 			console.log(`user service - result`)
+ 			console.log(result)
+
  			if(!result == 0) {
  				console.log(`>> Main.js - User Logged In`)
  				this.setState({
@@ -40,13 +44,6 @@ var Main = React.createClass({
  				});
  			}
  		});
-
-//UserLogin hack
-
- 		/*DB.users.add({username: "Tom", password: "tom"}, function(added_data){
-    		console.log(added_data); 
-		});*/
-//--------------
  	},
 
 	getInitialState(){
@@ -70,13 +67,12 @@ var Main = React.createClass({
 			last_name: current.last_name,
 			age: current.age,
 			bloodGroup: current.bloodGroup,
-			homeBio: current.homeBio,
-
+			homeBio: current.homeBio
 
 		}, function(added_data){
 			console.log(`>> Main.js - Added User: `)
 			console.log(added_data)
-			this.setState({
+			this.setState ({
 			  user: added_data,
 			});
 
@@ -107,7 +103,7 @@ var Main = React.createClass({
 
 		if(this.state.isLoggedIn){
 			return(
-				<AppContainer/>
+				<AppContainer data={this.state.user}/>
 			);
 		} else {
 			return(

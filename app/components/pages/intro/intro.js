@@ -27,7 +27,7 @@ class Intro extends Component{
       				style={{height: 50, width: 50}} />
 				<View style={{flex: 1, flexDirection: 'column'}}>
   					<Text style={Theme.introSubheading}>Feed</Text>
-  					<Text style={Theme.introText}>Feeds are created by your healthcare professional</Text>
+  					<Text style={Theme.introText}>HealthBits are created by your healthcare professional</Text>
 				</View>
       		</View>
 

@@ -4,6 +4,7 @@
 import React from 'react-native';
 import ComponentsApi from '../../api/components-api';
 import authService from '../../helpers/AuthService';
+import UserService from '../../helpers/UserService';
 import Theme from '../../assets/theme/theme';
 
 let {
@@ -55,13 +56,25 @@ class Login extends Component{
 
 				this.props.onLogin(currentUser);
 
+				UserService.deleteUserDiary();
+ 				
+ 				 AlertIOS.alert(
+			       'Safety Notice',
+			       'This application should not replace the advice of your healthcare professional.\n\n If at any time you feel unwell, consult your healthcare professional fully.\n\n Thank you.',
+			       [
+			         {
+			           text: 'OK'
+			         }
+			       ]
+			     )
+
 		 	} else {
 		 		AlertIOS.alert(
 		 			'Error',
 		 			'Username and Password Incorrect',
 		 			[{
                       text: 'Cancel',
-                      onPress: () =>console.log('Incorrect U/P alert cancelled.'),
+                      onPress: () => console.log('Incorrect U/P alert cancelled.'),
                     },]
                 );
 		 	}

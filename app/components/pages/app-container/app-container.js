@@ -36,16 +36,13 @@ class AppContainer extends Component{
   }
 
   componentDidMount(){  
-
+    
   }
+
 
   navbarLogout(){
     console.log('>> User Logout Clicked');
     UserService.deleteUserSession();
-  }
-
-  navbarDeleteDiary(){
-    UserService.deleteUserDiary();
   }
 
   render() {
@@ -130,10 +127,6 @@ class AppContainer extends Component{
                     {
                       text: 'OK',
                       onPress: () => this.navbarLogout(),
-                    },
-                    {
-                      text: 'Reset',
-                      onPress: () => this.navbarDeleteDiary(),
                     },
                     {
                       text: 'Cancel',

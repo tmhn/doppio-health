@@ -302,6 +302,20 @@ module.exports = {
 		backgroundColor: '#FFF',
     	fontFamily: 'Avenir',
 	},
+	diaryfeed_header: {
+		backgroundColor: '#498EE0',
+      	height: 100,
+      	flex: 1,
+      	alignItems: 'center',
+      	paddingLeft: 20,
+      	paddingRight: 20
+	},
+	homefeed_headerTitle: {
+		color: '#fff',
+		fontFamily: 'Avenir',
+		fontSize: 20,
+		paddingTop: 40,
+	},
 
 // ------ Pages ------
 
@@ -404,6 +418,18 @@ module.exports = {
 		marginTop: 10,
 		alignSelf: 'stretch',
 		justifyContent: 'center',
+	},
+	diary_button: {
+		height: 45,
+		flexDirection: 'row',
+		backgroundColor: 'white',
+		borderColor: 'white',
+		borderWidth: 1,
+		borderRadius: 8,
+		marginBottom: 10,
+		marginTop: 30,
+		alignSelf: 'stretch',
+		justifyContent: 'center'
 	},
 	buttonText: {
 		fontSize: 18,

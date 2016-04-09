@@ -19,7 +19,7 @@ class UserService{
 			last_name: user.last_name,
 			age: user.age,
 			bloodGroup: user.bloodGroup,
-			homeBio: user.homeBio,
+			homeBio: user.homeBio
 
 
 		}, function(added_data){
@@ -42,6 +42,8 @@ class UserService{
 	// Clean function to allow successful login
 	getUserSession(cb){
 			DB.user_session.get_all(function(result){
+				console.log(`>> get user session -- `)
+				console.log(result)
 			var getAllResults = result;
 			cb(getAllResults.totalrows);
 		});
@@ -55,7 +57,8 @@ class UserService{
 			var getAllResults = result;
 			let tempUser = JSON.stringify(getAllResults);
 			let str = tempUser.slice(42, (tempUser.length)-3);
-
+console.log(`>> user service - getUserSessionData`)
+console.log(str)
 			let jsonStr = `{${str}}`;
 			let tempjson = JSON.parse(jsonStr)			
 			cb(tempjson);

@@ -51,8 +51,8 @@ class AuthService{
 
 	loadSandbox(creds, cb){
 
-		//fetch(`http://localhost:8080/api/app/${creds.userId}`)
-		fetch(`http://https://doppiohealth.herokuapp.com/api/app/${creds.userId}`)
+		fetch(`http://localhost:8080/api/app/${creds.userId}`)
+		//fetch(`http://https://doppiohealth.herokuapp.com/api/app/${creds.userId}`)
 		.then((response) => {
 			return cb(response)
 		})

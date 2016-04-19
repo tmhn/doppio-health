@@ -38,7 +38,7 @@ class Profile extends Component{
 			let bloodGroup = result.bloodGroup;
 			let allergies = result.allergies;
 
-
+			/*
 			this.setState({
 			  FirstName: firstName,
 			  LastName: lastName,
@@ -46,6 +46,17 @@ class Profile extends Component{
 			  UserPass: userPass,
 			  Age: age,
 			  BloodGroup: bloodGroup,
+			  Allergies: allergies
+			});
+			*/
+
+			this.setState({
+			  FirstName: "Mick",
+			  LastName: "Colborn",
+			  Username: "mick_colborn",
+			  UserPass: "apple",
+			  Age: 22,
+			  BloodGroup: "O+",
 			  Allergies: allergies
 			});
 
@@ -85,9 +96,6 @@ class Profile extends Component{
 					</Text>
 					<Text style={Theme.profile_profileDetails}>
 						Blood Group: <Text style={Theme.profile_profileDetailsLite}>{this.state.BloodGroup}</Text>
-					</Text>
-					<Text style={Theme.profile_profileDetails}>
-						Allergies: <Text style={Theme.profile_profileDetailsLite}>{this.state.Allergies}</Text>
 					</Text>
 				</View>
 		  </View>

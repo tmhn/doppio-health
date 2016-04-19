@@ -48,8 +48,8 @@ class HomeFeed extends Component{
         
         let userId = result.userId
         console.log(`>> HomeFeed - userId ${userId}`)
-
-          fetch(`http://localhost:8080/api/app/5703895d9850481200297e2e`)
+          //fetch(`http://localhost:8080/api/app/${userId}`)
+          fetch(`http://localhost:8080/api/app/57168675825f3c6b1b295ae3`)
           //fetch(`https://doppiohealth.herokuapp.com/api/app/${userId}`)
             .then((response) => {
               return response._bodyText;

@@ -38,7 +38,7 @@ class HomeFeed extends Component{
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
 
       console.log(`>> HomeFeed - Feed Rendered`)
 
@@ -49,7 +49,8 @@ class HomeFeed extends Component{
         let userId = result.userId
         console.log(`>> HomeFeed - userId ${userId}`)
           //fetch(`http://localhost:8080/api/app/${userId}`)
-          fetch(`http://localhost:8080/api/app/57168675825f3c6b1b295ae3`)
+          //fetch(`http://localhost:8080/api/app/57168675825f3c6b1b295ae3`) // Mick Colborn
+          fetch(`http://localhost:8080/api/app/57176eb1147c7fb41ee37ba4`)
           //fetch(`https://doppiohealth.herokuapp.com/api/app/${userId}`)
             .then((response) => {
               return response._bodyText;
